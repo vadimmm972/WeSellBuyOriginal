@@ -1,0 +1,13 @@
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\bin\Debug\DB_Entity_DAL.dll.config
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\bin\Debug\DB_Entity_DAL.dll
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\bin\Debug\DB_Entity_DAL.pdb
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\bin\Debug\EntityFramework.dll
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\bin\Debug\EntityFramework.SqlServer.dll
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\bin\Debug\EntityFramework.xml
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\bin\Debug\EntityFramework.SqlServer.xml
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\obj\Debug\DB_Entity_DAL.dll
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\obj\Debug\DB_Entity_DAL.pdb
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\bin\Debug\NLog.config
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\bin\Debug\NLog.dll
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\bin\Debug\NLog.xml
+M:\Vadym_Kobylynskiy_FILE\SHAG_DIPLOM_WORK\DB_Entity_DAL\obj\Debug\DB_Entity_DAL.csprojResolveAssemblyReference.cache

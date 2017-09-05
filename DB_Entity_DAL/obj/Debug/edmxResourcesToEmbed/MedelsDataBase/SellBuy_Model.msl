@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Sell_BuyModelStoreContainer" CdmEntityContainer="Sell_BuyEntities">
+    <EntitySetMapping Name="Baskets">
+      <EntityTypeMapping TypeName="Sell_BuyModel.Basket">
+        <MappingFragment StoreEntitySet="Basket">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="Sell_BuyModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name_brand" ColumnName="name_brand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="Sell_BuyModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name_category" ColumnName="name_category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="Sell_BuyModel.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="comment1" ColumnName="comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="Sell_BuyModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name_country" ColumnName="name_country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="Sell_BuyModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="translate" ColumnName="translate" />
+          <ScalarProperty Name="C_status" ColumnName="_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LastViews">
+      <EntityTypeMapping TypeName="Sell_BuyModel.LastView">
+        <MappingFragment StoreEntitySet="LastView">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Magazines">
+      <EntityTypeMapping TypeName="Sell_BuyModel.Magazine">
+        <MappingFragment StoreEntitySet="Magazine">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name_magazine" ColumnName="name_magazine" />
+          <ScalarProperty Name="C_image" ColumnName="_image" />
+          <ScalarProperty Name="C_status" ColumnName="_status" />
+          <ScalarProperty Name="id_category" ColumnName="id_category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Sell_BuyModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="delivery_date" ColumnName="delivery_date" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="C_description" ColumnName="_description" />
+          <ScalarProperty Name="producer" ColumnName="producer" />
+          <ScalarProperty Name="id_category" ColumnName="id_category" />
+          <ScalarProperty Name="C_image" ColumnName="_image" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="id_magazine" ColumnName="id_magazine" />
+          <ScalarProperty Name="C_status" ColumnName="_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="Sell_BuyModel.Region">
+        <MappingFragment StoreEntitySet="Regions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name_region" ColumnName="name_region" />
+          <ScalarProperty Name="id_country" ColumnName="id_country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMagazines">
+      <EntityTypeMapping TypeName="Sell_BuyModel.UserMagazine">
+        <MappingFragment StoreEntitySet="UserMagazines">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="id_magazine" ColumnName="id_magazine" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Sell_BuyModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name_first" ColumnName="name_first" />
+          <ScalarProperty Name="name_last" ColumnName="name_last" />
+          <ScalarProperty Name="name_middle" ColumnName="name_middle" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="id_country" ColumnName="id_country" />
+          <ScalarProperty Name="id_region" ColumnName="id_region" />
+          <ScalarProperty Name="id_sity" ColumnName="id_sity" />
+          <ScalarProperty Name="C_status" ColumnName="_status" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="id_language" ColumnName="id_language" />
+          <ScalarProperty Name="C_image" ColumnName="_image" />
+          <ScalarProperty Name="date_register" ColumnName="date_register" />
+          <ScalarProperty Name="C_login" ColumnName="_login" />
+          <ScalarProperty Name="C_password" ColumnName="_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="Sell_BuyModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="id_region" ColumnName="id_region" />
+          <ScalarProperty Name="id_country" ColumnName="id_country" />
+          <ScalarProperty Name="name_sity" ColumnName="name_sity" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

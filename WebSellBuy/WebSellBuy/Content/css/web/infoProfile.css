@@ -1,0 +1,116 @@
+﻿
+@import "bourbon";
+
+body {
+	background: #eee !important;	
+}
+
+.wrapper {	
+	margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.form-signin {
+    max-width: 460px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+  .form-signin-heading,.checkbox {
+	  margin-bottom: 30px;
+	}
+
+	.checkbox {
+	  font-weight: normal;
+	}
+
+	.form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		@include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+
+	input[type="text"] {
+	  margin-bottom: -1px;
+	  border-bottom-left-radius: 0;
+	  border-bottom-right-radius: 0;
+	}
+
+	input[type="password"] {
+	  margin-bottom: 20px;
+	  border-top-left-radius: 0;
+	  border-top-right-radius: 0;
+	}
+.form-control{
+    width:75% !important;
+    float:left !important;
+}
+
+.btnupdateInfoProfileInput{
+        width: 20% !important;;
+    float: left;
+    margin-left: 5px;
+    font-size: 13px;
+}
+
+
+
+
+
+.knopka01 {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px rgba(255,255,255,.2), 0 -1px rgba(0,0,0,.8);
+  outline: none;
+  border: none;
+  border-radius: 100px;
+  background: rgb(28,107,114) radial-gradient(150% 100% at 50% 5px, rgba(255,255,255,.2), rgba(0,0,0,0));
+  box-shadow: inset rgba(0,0,0,.6) 0 -2px 5px, inset rgba(252,255,255,.7) 0 2px 5px, rgba(0,0,0,.8) 0 2px 5px -1px;
+  color: rgb(0,79,86);
+  user-select: none;
+} 
+.knopka01:hover {
+  color: rgb(0,59,66);
+  cursor: pointer;
+}
+.knopka01:active {
+  padding-bottom: 1px;
+  box-shadow:
+   inset rgba(0,0,0,1) 0 1px 3px,
+   inset rgba(0,0,0,.6) 0 -2px 5px,
+   inset rgba(252,255,255,.7) 0 2px 5px,
+   0 1px rgba(255,255,255,.08);
+  color: rgb(128,207,214);
+}
+
+
+.cssStyleInfoElem{
+    margin-top:7px;
+}
+
+.imgcssProfileUpdate{
+    width: 200px !important;
+}
+
+ .countryClass, .regionClass, .sityClass{
+    display:none;
+}
+.infoDrt{
+    display:block;
+}
+
+.btnSaveInfo{
+    display:none;
+}

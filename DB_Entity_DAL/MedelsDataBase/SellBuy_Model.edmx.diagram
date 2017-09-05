@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="607da58634bb4394879fc9230139e6da" Name="Diagram1">
+        <EntityTypeShape EntityType="Sell_BuyModel.Basket" Width="1.5" PointX="9.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sell_BuyModel.Brand" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sell_BuyModel.Category" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sell_BuyModel.Comment" Width="1.5" PointX="9.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sell_BuyModel.Country" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sell_BuyModel.Language" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sell_BuyModel.LastView" Width="1.5" PointX="9.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sell_BuyModel.Magazine" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sell_BuyModel.Product" Width="1.5" PointX="7.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sell_BuyModel.Region" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sell_BuyModel.UserMagazine" Width="1.5" PointX="12.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sell_BuyModel.User" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Basket__id_produ__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Basket__id_user__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Products__id_bra__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Magazine__id_cat__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Products__id_cat__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Comments__id_pro__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Comments__id_use__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Regions__id_coun__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Users__id_countr__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Users__id_langua__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__LastView__id_pro__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__LastView__id_use__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Products__id_mag__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__UserMagaz__id_ma__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Users__id_region__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="Sell_BuyModel.FK__UserMagaz__id_us__4316F928" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Sell_BuyModel.City" Width="1.5" PointX="6.875" PointY="0.625" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Sites__id_countr__1920BF5C1" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Sites__id_region__1A14E3951" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Users__id_sity__31EC6D261" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

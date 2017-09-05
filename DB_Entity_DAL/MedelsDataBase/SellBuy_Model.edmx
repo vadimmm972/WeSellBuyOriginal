@@ -1,0 +1,1117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Sell_BuyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Basket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_user" Type="int" />
+          <Property Name="id_product" Type="int" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_brand" Type="nvarchar" MaxLength="55" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_category" Type="nvarchar" MaxLength="55" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_sity" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="id_country" Type="int" />
+          <Property Name="id_region" Type="int" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_user" Type="int" />
+          <Property Name="id_product" Type="int" />
+          <Property Name="comment" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_country" Type="nvarchar" MaxLength="55" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="translate" Type="nvarchar" MaxLength="55" />
+          <Property Name="_status" Type="int" />
+        </EntityType>
+        <EntityType Name="LastView">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_user" Type="int" />
+          <Property Name="id_product" Type="int" />
+        </EntityType>
+        <EntityType Name="Magazine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_magazine" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="_image" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="_status" Type="int" Nullable="false" />
+          <Property Name="id_category" Type="int" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="55" />
+          <Property Name="delivery_date" Type="nvarchar" MaxLength="55" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="id_brand" Type="int" />
+          <Property Name="currency" Type="nvarchar" MaxLength="55" />
+          <Property Name="_description" Type="text" />
+          <Property Name="producer" Type="nvarchar" MaxLength="55" />
+          <Property Name="id_category" Type="int" />
+          <Property Name="_image" Type="nvarchar" MaxLength="150" />
+          <Property Name="rating" Type="float" />
+          <Property Name="id_magazine" Type="int" />
+          <Property Name="_status" Type="int" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_region" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="id_country" Type="int" />
+        </EntityType>
+        <EntityType Name="UserMagazines">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_user" Type="int" />
+          <Property Name="id_magazine" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_first" Type="nvarchar" MaxLength="55" />
+          <Property Name="name_last" Type="nvarchar" MaxLength="55" />
+          <Property Name="name_middle" Type="nvarchar" MaxLength="55" />
+          <Property Name="phone" Type="nvarchar" MaxLength="55" />
+          <Property Name="mail" Type="nvarchar" MaxLength="55" />
+          <Property Name="id_country" Type="int" />
+          <Property Name="id_region" Type="int" />
+          <Property Name="id_sity" Type="int" />
+          <Property Name="_status" Type="int" />
+          <Property Name="active" Type="int" />
+          <Property Name="id_language" Type="int" />
+          <Property Name="_image" Type="nvarchar" MaxLength="55" />
+          <Property Name="date_register" Type="nvarchar" MaxLength="55" />
+          <Property Name="_login" Type="nvarchar" MaxLength="55" />
+          <Property Name="_password" Type="nvarchar" MaxLength="55" />
+        </EntityType>
+        <Association Name="FK__Basket__id_produ__38996AB5">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Basket">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Basket__id_user__37A5467C">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Basket">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comments__id_pro__403A8C7D">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comments__id_use__3F466844">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LastView__id_pro__3C69FB99">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="LastView" Type="Self.LastView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LastView">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LastView__id_use__3B75D760">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="LastView" Type="Self.LastView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LastView">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Magazine__id_cat__1CF15040">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Magazine" Type="Self.Magazine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Magazine">
+              <PropertyRef Name="id_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__id_bra__267ABA7A">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="id_brand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__id_cat__2A4B4B5E">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="id_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__id_mag__2C3393D0">
+          <End Role="Magazine" Type="Self.Magazine" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazine">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="id_magazine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Regions__id_coun__164452B1">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="Regions" Type="Self.Regions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Regions">
+              <PropertyRef Name="id_country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sites__id_countr__1920BF5C">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="id_country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sites__id_region__1A14E395">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="id_region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserMagaz__id_ma__440B1D61">
+          <End Role="Magazine" Type="Self.Magazine" Multiplicity="0..1" />
+          <End Role="UserMagazines" Type="Self.UserMagazines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazine">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserMagazines">
+              <PropertyRef Name="id_magazine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserMagaz__id_us__4316F928">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UserMagazines" Type="Self.UserMagazines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserMagazines">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__id_countr__300424B4">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__id_langua__34C8D9D1">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_language" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__id_region__30F848ED">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__id_sity__31EC6D26">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_sity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Sell_BuyModelStoreContainer">
+          <EntitySet Name="Basket" EntityType="Self.Basket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LastView" EntityType="Self.LastView" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Magazine" EntityType="Self.Magazine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserMagazines" EntityType="Self.UserMagazines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Basket__id_produ__38996AB5" Association="Self.FK__Basket__id_produ__38996AB5">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Basket" EntitySet="Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Basket__id_user__37A5467C" Association="Self.FK__Basket__id_user__37A5467C">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Basket" EntitySet="Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comments__id_pro__403A8C7D" Association="Self.FK__Comments__id_pro__403A8C7D">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comments__id_use__3F466844" Association="Self.FK__Comments__id_use__3F466844">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LastView__id_pro__3C69FB99" Association="Self.FK__LastView__id_pro__3C69FB99">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="LastView" EntitySet="LastView" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LastView__id_use__3B75D760" Association="Self.FK__LastView__id_use__3B75D760">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="LastView" EntitySet="LastView" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Magazine__id_cat__1CF15040" Association="Self.FK__Magazine__id_cat__1CF15040">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Magazine" EntitySet="Magazine" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__id_bra__267ABA7A" Association="Self.FK__Products__id_bra__267ABA7A">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__id_cat__2A4B4B5E" Association="Self.FK__Products__id_cat__2A4B4B5E">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__id_mag__2C3393D0" Association="Self.FK__Products__id_mag__2C3393D0">
+            <End Role="Magazine" EntitySet="Magazine" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Regions__id_coun__164452B1" Association="Self.FK__Regions__id_coun__164452B1">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Regions" EntitySet="Regions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sites__id_countr__1920BF5C" Association="Self.FK__Sites__id_countr__1920BF5C">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sites__id_region__1A14E395" Association="Self.FK__Sites__id_region__1A14E395">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserMagaz__id_ma__440B1D61" Association="Self.FK__UserMagaz__id_ma__440B1D61">
+            <End Role="Magazine" EntitySet="Magazine" />
+            <End Role="UserMagazines" EntitySet="UserMagazines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserMagaz__id_us__4316F928" Association="Self.FK__UserMagaz__id_us__4316F928">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserMagazines" EntitySet="UserMagazines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__id_countr__300424B4" Association="Self.FK__Users__id_countr__300424B4">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__id_langua__34C8D9D1" Association="Self.FK__Users__id_langua__34C8D9D1">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__id_region__30F848ED" Association="Self.FK__Users__id_region__30F848ED">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__id_sity__31EC6D26" Association="Self.FK__Users__id_sity__31EC6D26">
+            <End Role="City" EntitySet="City" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Sell_BuyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Basket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_user" Type="Int32" />
+          <Property Name="id_product" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Basket__id_produ__38996AB5" FromRole="Basket" ToRole="Products" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Basket__id_user__37A5467C" FromRole="Basket" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_brand" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Products__id_bra__267ABA7A" FromRole="Brand" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_category" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Magazines" Relationship="Self.FK__Magazine__id_cat__1CF15040" FromRole="Category" ToRole="Magazine" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Products__id_cat__2A4B4B5E" FromRole="Category" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_user" Type="Int32" />
+          <Property Name="id_product" Type="Int32" />
+          <Property Name="comment1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Comments__id_pro__403A8C7D" FromRole="Comments" ToRole="Products" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Comments__id_use__3F466844" FromRole="Comments" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_country" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Regions" Relationship="Self.FK__Regions__id_coun__164452B1" FromRole="Countries" ToRole="Regions" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__id_countr__300424B4" FromRole="Countries" ToRole="Users" />
+          <NavigationProperty Name="Cities" Relationship="Sell_BuyModel.FK__Sites__id_countr__1920BF5C1" FromRole="Country" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="translate" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="C_status" Type="Int32" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__id_langua__34C8D9D1" FromRole="Languages" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="LastView">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_user" Type="Int32" />
+          <Property Name="id_product" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__LastView__id_pro__3C69FB99" FromRole="LastView" ToRole="Products" />
+          <NavigationProperty Name="User" Relationship="Self.FK__LastView__id_use__3B75D760" FromRole="LastView" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Magazine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_magazine" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C_image" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C_status" Type="Int32" Nullable="false" />
+          <Property Name="id_category" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Magazine__id_cat__1CF15040" FromRole="Magazine" ToRole="Category" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Products__id_mag__2C3393D0" FromRole="Magazine" ToRole="Products" />
+          <NavigationProperty Name="UserMagazines" Relationship="Self.FK__UserMagaz__id_ma__440B1D61" FromRole="Magazine" ToRole="UserMagazines" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="delivery_date" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="id_brand" Type="Int32" />
+          <Property Name="currency" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="C_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="producer" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="id_category" Type="Int32" />
+          <Property Name="C_image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="rating" Type="Double" />
+          <Property Name="id_magazine" Type="Int32" />
+          <Property Name="C_status" Type="Int32" />
+          <NavigationProperty Name="Baskets" Relationship="Self.FK__Basket__id_produ__38996AB5" FromRole="Products" ToRole="Basket" />
+          <NavigationProperty Name="Brand" Relationship="Self.FK__Products__id_bra__267ABA7A" FromRole="Products" ToRole="Brand" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Products__id_cat__2A4B4B5E" FromRole="Products" ToRole="Category" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__id_pro__403A8C7D" FromRole="Products" ToRole="Comments" />
+          <NavigationProperty Name="LastViews" Relationship="Self.FK__LastView__id_pro__3C69FB99" FromRole="Products" ToRole="LastView" />
+          <NavigationProperty Name="Magazine" Relationship="Self.FK__Products__id_mag__2C3393D0" FromRole="Products" ToRole="Magazine" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_region" Type="String" MaxLength="55" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_country" Type="Int32" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Regions__id_coun__164452B1" FromRole="Regions" ToRole="Countries" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__id_region__30F848ED" FromRole="Regions" ToRole="Users" />
+          <NavigationProperty Name="Cities" Relationship="Sell_BuyModel.FK__Sites__id_region__1A14E3951" FromRole="Region" ToRole="City" />
+        </EntityType>
+        <EntityType Name="UserMagazine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_user" Type="Int32" />
+          <Property Name="id_magazine" Type="Int32" />
+          <NavigationProperty Name="Magazine" Relationship="Self.FK__UserMagaz__id_ma__440B1D61" FromRole="UserMagazines" ToRole="Magazine" />
+          <NavigationProperty Name="User" Relationship="Self.FK__UserMagaz__id_us__4316F928" FromRole="UserMagazines" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_first" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="name_last" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="name_middle" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="mail" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="id_country" Type="Int32" />
+          <Property Name="id_region" Type="Int32" />
+          <Property Name="id_sity" Type="Int32" />
+          <Property Name="C_status" Type="Int32" />
+          <Property Name="active" Type="Int32" />
+          <Property Name="id_language" Type="Int32" />
+          <Property Name="C_image" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="date_register" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="C_login" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="C_password" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Baskets" Relationship="Self.FK__Basket__id_user__37A5467C" FromRole="Users" ToRole="Basket" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__id_use__3F466844" FromRole="Users" ToRole="Comments" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__Users__id_countr__300424B4" FromRole="Users" ToRole="Countries" />
+          <NavigationProperty Name="Language" Relationship="Self.FK__Users__id_langua__34C8D9D1" FromRole="Users" ToRole="Languages" />
+          <NavigationProperty Name="LastViews" Relationship="Self.FK__LastView__id_use__3B75D760" FromRole="Users" ToRole="LastView" />
+          <NavigationProperty Name="Region" Relationship="Self.FK__Users__id_region__30F848ED" FromRole="Users" ToRole="Regions" />
+          <NavigationProperty Name="UserMagazines" Relationship="Self.FK__UserMagaz__id_us__4316F928" FromRole="Users" ToRole="UserMagazines" />
+          <NavigationProperty Name="City" Relationship="Sell_BuyModel.FK__Users__id_sity__31EC6D261" FromRole="User" ToRole="City" />
+        </EntityType>
+        <Association Name="FK__Basket__id_produ__38996AB5">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Basket">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Basket__id_user__37A5467C">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Basket" Type="Self.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Basket">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__id_bra__267ABA7A">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="id_brand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Magazine__id_cat__1CF15040">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Magazine" Type="Self.Magazine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Magazine">
+              <PropertyRef Name="id_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__id_cat__2A4B4B5E">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="id_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comments__id_pro__403A8C7D">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comments__id_use__3F466844">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Regions__id_coun__164452B1">
+          <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Regions" Type="Self.Region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Regions">
+              <PropertyRef Name="id_country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__id_countr__300424B4">
+          <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__id_langua__34C8D9D1">
+          <End Role="Languages" Type="Self.Language" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_language" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LastView__id_pro__3C69FB99">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="LastView" Type="Self.LastView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LastView">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LastView__id_use__3B75D760">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="LastView" Type="Self.LastView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LastView">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__id_mag__2C3393D0">
+          <End Role="Magazine" Type="Self.Magazine" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazine">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="id_magazine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserMagaz__id_ma__440B1D61">
+          <End Role="Magazine" Type="Self.Magazine" Multiplicity="0..1" />
+          <End Role="UserMagazines" Type="Self.UserMagazine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazine">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserMagazines">
+              <PropertyRef Name="id_magazine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__id_region__30F848ED">
+          <End Role="Regions" Type="Self.Region" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserMagaz__id_us__4316F928">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserMagazines" Type="Self.UserMagazine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserMagazines">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Sell_BuyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Baskets" EntityType="Self.Basket" />
+          <EntitySet Name="Brands" EntityType="Self.Brand" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="LastViews" EntityType="Self.LastView" />
+          <EntitySet Name="Magazines" EntityType="Self.Magazine" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Regions" EntityType="Self.Region" />
+          <EntitySet Name="UserMagazines" EntityType="Self.UserMagazine" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Basket__id_produ__38996AB5" Association="Self.FK__Basket__id_produ__38996AB5">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Basket" EntitySet="Baskets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Basket__id_user__37A5467C" Association="Self.FK__Basket__id_user__37A5467C">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Basket" EntitySet="Baskets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__id_bra__267ABA7A" Association="Self.FK__Products__id_bra__267ABA7A">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Magazine__id_cat__1CF15040" Association="Self.FK__Magazine__id_cat__1CF15040">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Magazine" EntitySet="Magazines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__id_cat__2A4B4B5E" Association="Self.FK__Products__id_cat__2A4B4B5E">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comments__id_pro__403A8C7D" Association="Self.FK__Comments__id_pro__403A8C7D">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comments__id_use__3F466844" Association="Self.FK__Comments__id_use__3F466844">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Regions__id_coun__164452B1" Association="Self.FK__Regions__id_coun__164452B1">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Regions" EntitySet="Regions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__id_countr__300424B4" Association="Self.FK__Users__id_countr__300424B4">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__id_langua__34C8D9D1" Association="Self.FK__Users__id_langua__34C8D9D1">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LastView__id_pro__3C69FB99" Association="Self.FK__LastView__id_pro__3C69FB99">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="LastView" EntitySet="LastViews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LastView__id_use__3B75D760" Association="Self.FK__LastView__id_use__3B75D760">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="LastView" EntitySet="LastViews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__id_mag__2C3393D0" Association="Self.FK__Products__id_mag__2C3393D0">
+            <End Role="Magazine" EntitySet="Magazines" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserMagaz__id_ma__440B1D61" Association="Self.FK__UserMagaz__id_ma__440B1D61">
+            <End Role="Magazine" EntitySet="Magazines" />
+            <End Role="UserMagazines" EntitySet="UserMagazines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__id_region__30F848ED" Association="Self.FK__Users__id_region__30F848ED">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserMagaz__id_us__4316F928" Association="Self.FK__UserMagaz__id_us__4316F928">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserMagazines" EntitySet="UserMagazines" />
+          </AssociationSet>
+          <EntitySet Name="Cities" EntityType="Sell_BuyModel.City" />
+          <AssociationSet Name="FK__Sites__id_countr__1920BF5C1" Association="Sell_BuyModel.FK__Sites__id_countr__1920BF5C1">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sites__id_region__1A14E3951" Association="Sell_BuyModel.FK__Sites__id_region__1A14E3951">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__id_sity__31EC6D261" Association="Sell_BuyModel.FK__Users__id_sity__31EC6D261">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_sity" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="id_country" Type="Int32" />
+          <Property Name="id_region" Type="Int32" />
+          <NavigationProperty Name="Country" Relationship="Sell_BuyModel.FK__Sites__id_countr__1920BF5C1" FromRole="City" ToRole="Country" />
+          <NavigationProperty Name="Region" Relationship="Sell_BuyModel.FK__Sites__id_region__1A14E3951" FromRole="City" ToRole="Region" />
+          <NavigationProperty Name="Users" Relationship="Sell_BuyModel.FK__Users__id_sity__31EC6D261" FromRole="City" ToRole="User" />
+        </EntityType>
+        <Association Name="FK__Sites__id_countr__1920BF5C1">
+          <End Type="Sell_BuyModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="Sell_BuyModel.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="id_country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sites__id_region__1A14E3951">
+          <End Type="Sell_BuyModel.Region" Role="Region" Multiplicity="0..1" />
+          <End Type="Sell_BuyModel.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="id_region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__id_sity__31EC6D261">
+          <End Type="Sell_BuyModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="Sell_BuyModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="id_sity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Sell_BuyModelStoreContainer" CdmEntityContainer="Sell_BuyEntities">
+          <EntitySetMapping Name="Baskets">
+            <EntityTypeMapping TypeName="Sell_BuyModel.Basket">
+              <MappingFragment StoreEntitySet="Basket">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="Sell_BuyModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_brand" ColumnName="name_brand" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Sell_BuyModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_category" ColumnName="name_category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="Sell_BuyModel.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="comment1" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="Sell_BuyModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_country" ColumnName="name_country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="Sell_BuyModel.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="translate" ColumnName="translate" />
+                <ScalarProperty Name="C_status" ColumnName="_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LastViews">
+            <EntityTypeMapping TypeName="Sell_BuyModel.LastView">
+              <MappingFragment StoreEntitySet="LastView">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Magazines">
+            <EntityTypeMapping TypeName="Sell_BuyModel.Magazine">
+              <MappingFragment StoreEntitySet="Magazine">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_magazine" ColumnName="name_magazine" />
+                <ScalarProperty Name="C_image" ColumnName="_image" />
+                <ScalarProperty Name="C_status" ColumnName="_status" />
+                <ScalarProperty Name="id_category" ColumnName="id_category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="Sell_BuyModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="delivery_date" ColumnName="delivery_date" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+                <ScalarProperty Name="C_description" ColumnName="_description" />
+                <ScalarProperty Name="producer" ColumnName="producer" />
+                <ScalarProperty Name="id_category" ColumnName="id_category" />
+                <ScalarProperty Name="C_image" ColumnName="_image" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="id_magazine" ColumnName="id_magazine" />
+                <ScalarProperty Name="C_status" ColumnName="_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="Sell_BuyModel.Region">
+              <MappingFragment StoreEntitySet="Regions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_region" ColumnName="name_region" />
+                <ScalarProperty Name="id_country" ColumnName="id_country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserMagazines">
+            <EntityTypeMapping TypeName="Sell_BuyModel.UserMagazine">
+              <MappingFragment StoreEntitySet="UserMagazines">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="id_magazine" ColumnName="id_magazine" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Sell_BuyModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_first" ColumnName="name_first" />
+                <ScalarProperty Name="name_last" ColumnName="name_last" />
+                <ScalarProperty Name="name_middle" ColumnName="name_middle" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="id_country" ColumnName="id_country" />
+                <ScalarProperty Name="id_region" ColumnName="id_region" />
+                <ScalarProperty Name="id_sity" ColumnName="id_sity" />
+                <ScalarProperty Name="C_status" ColumnName="_status" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="id_language" ColumnName="id_language" />
+                <ScalarProperty Name="C_image" ColumnName="_image" />
+                <ScalarProperty Name="date_register" ColumnName="date_register" />
+                <ScalarProperty Name="C_login" ColumnName="_login" />
+                <ScalarProperty Name="C_password" ColumnName="_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="Sell_BuyModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="id_region" ColumnName="id_region" />
+                <ScalarProperty Name="id_country" ColumnName="id_country" />
+                <ScalarProperty Name="name_sity" ColumnName="name_sity" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
