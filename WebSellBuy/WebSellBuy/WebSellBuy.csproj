@@ -159,7 +159,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,12 +175,49 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\allPages\demo.css" />
+    <Content Include="Content\css\allPages\layoutPage.css" />
+    <Content Include="Content\css\allPages\loader.css" />
+    <Content Include="Content\css\allPages\updateInfoProfile.css" />
+    <Content Include="Content\css\AuthenticationStyle\authentication.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\css\web\infoProfile.css" />
+    <Content Include="Content\gif\ajax-loader.gif" />
+    <Content Include="Content\images\fontAuthentication\fonBody.jpg" />
+    <Content Include="Content\images\logoImages\logoSite.png" />
+    <Content Include="Content\images\userPhotoForProfile\profile_108959234_us.jpg" />
+    <Content Include="Content\images\userPhotoForProfile\profile_175200708_us.jpg" />
+    <Content Include="Content\images\userPhotoForProfile\profile_186595046_us.jpg" />
+    <Content Include="Content\images\userPhotoForProfile\profile_274598059_us.jpg" />
+    <Content Include="Content\images\userPhotoForProfile\profile_301989477_us.jpg" />
+    <Content Include="Content\images\userPhotoForProfile\profile_354534573_us.jpg" />
+    <Content Include="Content\images\userPhotoForProfile\profile_391597176_us.jpg" />
+    <Content Include="Content\images\userPhotoForProfile\profile_403804579_us.jpg" />
+    <Content Include="Content\images\userPhotoForProfile\profile_432018291_us.jpg" />
+    <Content Include="Content\images\userPhotoForProfile\profile_532970347_us.jpg" />
+    <Content Include="Content\images\userPhotoForProfile\profile_629231805_us.jpg" />
+    <Content Include="Content\images\userPhotoForProfile\profile_665201572_us.jpg" />
+    <Content Include="Content\images\userPhotoForProfile\profile_827279299_us.jpg" />
+    <Content Include="Content\js\allSite\commonJs.js" />
+    <Content Include="Content\js\allSite\popup.js" />
+    <Content Include="Content\js\allSite\updateInfoProfile.js" />
+    <Content Include="Content\js\AuthenticationJs\SignIn_SignUp.js" />
+    <Content Include="Content\js\bootsrap\bootstrap.js" />
+    <Content Include="Content\js\bootsrap\bootstrap.min.js" />
+    <Content Include="Content\js\jquery\jquery.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -214,9 +255,27 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Layout\_LayoutPageBase.cshtml" />
+    <Content Include="Views\Authentication\Authorization.cshtml" />
+    <Content Include="Views\Authentication\SignIn.cshtml" />
+    <Content Include="Views\UserProfile\View1.cshtml" />
+    <Content Include="Views\Manager\Manager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\css\ManagerStyle\bootstrap\css\" />
+    <Folder Include="Content\css\ManagerStyle\bootstrap\js\" />
+    <Folder Include="Content\css\ManagerStyle\datatables\" />
+    <Folder Include="Content\css\ManagerStyle\font-awesome\css\" />
+    <Folder Include="Content\css\ManagerStyle\font-awesome\fonts\" />
+    <Folder Include="Content\css\ManagerStyle\font-awesome\less\" />
+    <Folder Include="Content\css\ManagerStyle\font-awesome\scss\" />
+    <Folder Include="Content\js\ManagerJs\chart.js\" />
+    <Folder Include="Content\js\ManagerJs\datatables\" />
+    <Folder Include="Content\js\ManagerJs\jquery-easing\" />
+    <Folder Include="Content\js\ManagerJs\jquery\" />
+    <Folder Include="Content\js\ManagerJs\popper\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -224,6 +283,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DB_Entity_DAL\DB_Entity_DAL.csproj">
+      <Project>{4ba57744-c1b1-47f2-bcba-7dbdf853cd66}</Project>
+      <Name>DB_Entity_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OperationTools\OperationTools.csproj">
+      <Project>{abf0abe5-8a03-4ed3-a8eb-f3919e1d22c6}</Project>
+      <Name>OperationTools</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
