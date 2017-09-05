@@ -52,12 +52,19 @@ nav {
     margin: 2px;
 }
 
-
+.congMagUs{
+    margin:0px !important;
+}
 
 .signInBtn {
-    /*margin: 10px;*/
+    margin: 10px;
     cursor: pointer;
 }
+
+.signInOutStyle{
+    margin:2px !important;
+}
+
 
 .imgProfileStyle {
     width: 100%;

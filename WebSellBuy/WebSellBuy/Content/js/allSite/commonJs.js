@@ -7,6 +7,8 @@ nameCountry = "";
 nameRegion = "";
 nameCity = "";
 
+SPU = window.location.origin + "/";
+
 $(document).ready(function(){
     loadInfoUser();
 });
@@ -84,10 +86,12 @@ function UploadImage(option) {
 
 function SinIn_SIgnOut_RegisterUser_click(param) {
     if (param == 1) {
-        window.location.href = "SignIn";
+        window.location.href = SPU +"SignIn";
     }
     else if (param == 2) {
-        window.location.href = "Authorization";
+
+       // $(location).attr('href', 'Authorization');
+        document.location.href = SPU + "Authorization";
     }
     else if (param == 3) {
         $.ajax({
@@ -127,7 +131,7 @@ function getCountries() {
                 option.value = response[i].idCountry;
                 regSelect.add(option);
             }
-            $(".regionClass").empty();
+            $("#region").empty();
             $('.countryClass').css('display', 'block');
         },
         error: function (e) {
@@ -141,8 +145,9 @@ function getRegion(event) {
     var idCountry = event.value;
     checkIdCountry = idCountry;
     nameCountry = event.selectedOptions[0].label;;
-    $(".regionClass").empty();
-    $(".sityClass").empty();
+    //$(".regionClass").empty();
+    $("#city").empty();
+    $("#region").empty();
     $.ajax({
         url: 'Base/GetRegions',
         type: "POST",
@@ -173,7 +178,7 @@ function getCity(event) {
     var idRegion = event.value;
     checkIdRegion = idRegion;
     nameRegion = event.selectedOptions[0].label;
-    $(".sityClass").empty();
+    $("#city").empty();
     $.ajax({
         url: 'Base/GetCity',
         type: "POST",
