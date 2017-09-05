@@ -68,7 +68,7 @@ function SignIn() {
     var password = $("#Sign_password").val();
 
     $.ajax({
-        url: 'Authentication/SignInUser',
+        url: '../Authentication/SignInUser',
         type: "POST",
         data: { _login:login , _password:password},
         success: function (response) {

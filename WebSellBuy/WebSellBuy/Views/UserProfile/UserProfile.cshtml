@@ -1,13 +1,11 @@
 ﻿
 @{
-    ViewBag.Title = "View1";
-    Layout = "~/Views/_ViewStart.cshtml";
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Layout/_LayoutPageBase.cshtml";
 }
 
-<h2>View1</h2>
-
-<link href="~/Content/css/web/infoProfile.css" rel="stylesheet" />
 <script src="~/Content/js/allSite/updateInfoProfile.js"></script>
+<link href="~/Content/css/web/infoProfile.css" rel="stylesheet" />
 <div class="wrapper">
     <form class="form-signin">
         <h3 class="form-signin-heading">Информация профиля</h3>
@@ -55,3 +53,4 @@
         <button style="margin-top:10px;" class="cssStyleInfoElem btn btn-lg btn-primary btn-block" type="button" onclick="updateAllInfoProfile()">Изменить все</button>
     </form>
 </div>
+
