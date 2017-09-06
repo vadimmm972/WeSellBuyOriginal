@@ -40,14 +40,20 @@ namespace WebSellBuy.Controllers
                 var path = Path.Combine(Server.MapPath("~/Content/images/imagesPhotos"), fileName.Trim());
                 pic.SaveAs(path);
             }
-            if (operation == "2")
+            else if (operation == "2")
             {
                 var path = Path.Combine(Server.MapPath("~/Content/images/userPhotoForProfile"), fileName.Trim());
                 pic.SaveAs(path);
                 ViewBag.PhotoUser = fileName.Trim();
             }
+            else if (operation == "3")
+            {
+                var path = Path.Combine(Server.MapPath("~/Content/images/userPhotoForShops"), fileName.Trim());
+                pic.SaveAs(path);
+                ViewBag.PhotoUser = fileName.Trim();
+            }
 
-            var imgpath = "~/Content/images/userPhotoForProfile" + fileName.Trim();
+            var imgpath = "~/Content/images/userPhotoFor" + fileName.Trim();
 
             // var jsonResult = Json(imgpath, JsonRequestBehavior.AllowGet);
             return Json(fileName.Trim());

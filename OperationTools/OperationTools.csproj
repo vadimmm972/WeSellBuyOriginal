@@ -42,6 +42,7 @@
     <Compile Include="AuthenticationTools.cs" />
     <Compile Include="common\AllUrlPuth.cs" />
     <Compile Include="common\Location.cs" />
+    <Compile Include="common\ManagerTools.cs" />
     <Compile Include="common\UpdateInfoUserProfileTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

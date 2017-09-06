@@ -462,5 +462,31 @@ namespace DB_Entity_DAL.DB_Operations
                 return null;
             }
         }
+
+        public bool CheckPassProfile(int _id , string _password)
+        {
+            try
+            {
+                using (Sell_BuyEntities db = new Sell_BuyEntities())
+                {
+                    User user = db.Users.Find(_id);
+                    if (user != null)
+                    {
+                        if (user.C_password == _password)
+                        {
+                            return true;
+                        }
+                        return false;
+                    }
+
+                }
+            }
+            catch(Exception ex)
+            {
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> CheckPassProfile :\r\n Message: " + ex.Message + "\r\n " + ex.StackTrace + "", 0);
+                return false;
+            }
+            return false;
+        }
     }
 }

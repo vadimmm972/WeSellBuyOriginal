@@ -65,6 +65,8 @@
     <EntitySetMapping Name="Magazines">
       <EntityTypeMapping TypeName="Sell_BuyModel.Magazine">
         <MappingFragment StoreEntitySet="Magazine">
+          <ScalarProperty Name="dateCreate" ColumnName="dateCreate" />
+          <ScalarProperty Name="C_password" ColumnName="_password" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name_magazine" ColumnName="name_magazine" />
           <ScalarProperty Name="C_image" ColumnName="_image" />

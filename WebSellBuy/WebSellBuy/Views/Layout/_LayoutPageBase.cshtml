@@ -18,7 +18,7 @@
     <script src="~/Content/js/bootsrap/bootstrap.min.js"></script>
     <script src="~/Content/js/allSite/popup.js"></script>
     <link href="~/Content/css/allPages/loader.css" rel="stylesheet" />
-
+    <link rel="icon" type="image/png" href="http://www.bartonwheelers.co.uk/wp-content/uploads/2015/05/buy-and-sell.png" />
 </head>
 <body>
     <div class="loadingBlock">
@@ -140,7 +140,8 @@
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="signInBtn congMagUs"><a href="/Manager" target="_blank" class="cssLayoutLocation" onclick="">Менеджер</a></li>
+                        @*<li class="signInBtn congMagUs"><a href="/Manager" target="_blank" class="cssLayoutLocation" onclick="">Менеджер</a></li>*@
+                        <li><a href="#myModal" onclick="ClickManagerLink()" class="cssLayoutLocation" data-toggle="modal">Менеджер</a></li>
                     </ul>
                 }
                 else
@@ -168,6 +169,32 @@
             <span class="textInfoDialogForm"></span>
         </div>
     </div>
+
+
+   
+    <!-- HTML-код модального окна -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Заголовок модального окна -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Для входа в Manager введите свой пароль</h4>
+                </div>
+                <!-- Основное содержимое модального окна -->
+                <div class="modal-body">
+                    Password
+                    <input type="password" class="form-control" id="passModalManager">
+                </div>
+                <!-- Футер модального окна -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <button onclick="ChecUserkPassword()" type="button" class="btn btn-primary">Подтвердить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 </html>

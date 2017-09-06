@@ -77,6 +77,8 @@
           <Property Name="_image" Type="nvarchar" MaxLength="55" Nullable="false" />
           <Property Name="_status" Type="int" Nullable="false" />
           <Property Name="id_category" Type="int" />
+          <Property Name="_password" Type="nvarchar" MaxLength="255" />
+          <Property Name="dateCreate" Type="datetime" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
@@ -536,6 +538,8 @@
           <NavigationProperty Name="Category" Relationship="Self.FK__Magazine__id_cat__1CF15040" FromRole="Magazine" ToRole="Category" />
           <NavigationProperty Name="Products" Relationship="Self.FK__Products__id_mag__2C3393D0" FromRole="Magazine" ToRole="Products" />
           <NavigationProperty Name="UserMagazines" Relationship="Self.FK__UserMagaz__id_ma__440B1D61" FromRole="Magazine" ToRole="UserMagazines" />
+          <Property Name="C_password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="dateCreate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -1013,6 +1017,8 @@
           <EntitySetMapping Name="Magazines">
             <EntityTypeMapping TypeName="Sell_BuyModel.Magazine">
               <MappingFragment StoreEntitySet="Magazine">
+                <ScalarProperty Name="dateCreate" ColumnName="dateCreate" />
+                <ScalarProperty Name="C_password" ColumnName="_password" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name_magazine" ColumnName="name_magazine" />
                 <ScalarProperty Name="C_image" ColumnName="_image" />

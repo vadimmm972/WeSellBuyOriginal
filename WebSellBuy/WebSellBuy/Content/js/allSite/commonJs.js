@@ -6,10 +6,11 @@ checkIdCity = 0;
 nameCountry = "";
 nameRegion = "";
 nameCity = "";
-
+var redirectUrl = "";
 SPU = window.location.origin + "/";
 
-$(document).ready(function(){
+$(document).ready(function () {
+    if (window.location.pathname.indexOf("Manager") == -1)
     loadInfoUser();
 });
 function getIdCity(event) {
@@ -70,7 +71,7 @@ function UploadImage(option) {
     data.append("elementid", 11);
     data.append("operation", op);
     $.ajax({
-        url: 'Base/UploadImage',
+        url: 'http://localhost:57363/Base/UploadImage',
         type: "POST",
         processData: false,
         contentType: false,
@@ -202,4 +203,48 @@ function getCity(event) {
 
         }
     });
+}
+
+function ClickUserProfileLink() {
+    redirectUrl = "UserProfile";
+}
+
+function ClickManagerLink() {
+    redirectUrl = "Manager";
+}
+
+//function CheckUserPassForManager() {
+
+//    var check = ChecUserkPassword();
+//    if (check == "success") {
+//        window.location.href = SPU + redirectUrl;
+//    }
+//}
+
+function ChecUserkPassword(){
+    var pass = $("#passModalManager").val();
+    if (pass == "") {
+        opendialog("Введите пароль");
+    }
+    else {
+        $.ajax({
+            url: 'Manager/CheckUserPassword',
+            type: "POST",
+            data: { _password: pass },
+            success: function (response) {
+                if (response == "success") {
+                    if (redirectUrl != "") {
+                        window.location.href = SPU + "Manager";
+                    }
+                    else {
+                        opendialog(response);
+                    }
+                }
+             
+            },
+            error: function (e) {
+
+            }
+        });
+    }
 }
