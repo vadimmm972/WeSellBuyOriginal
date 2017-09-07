@@ -1,7 +1,10 @@
 ﻿window.onload = function () {
+   
     LoadInfoUserProfileAtTheContent();
 }
-
+//$(function () {
+//    LoadInfoUserProfileAtTheContent();
+//});
 var copySurname = "";
 var copyName = "";
 var copyLastname = "";
@@ -11,9 +14,21 @@ var copyLogin = "";
 var copyPass = "";
 myelem = 0;
 
-function LoadInfoUserProfileAtTheContent() {
+
+function SignOutProfile() {
     $.ajax({
-        url: 'UserProfile/LoadUserInfo',
+        url: SPU + 'Manager/SignOutUserProfile',
+        type: "POST",
+        success: function (response) {
+            window.location.reload();
+        }
+    });
+}
+
+function LoadInfoUserProfileAtTheContent() {
+  
+    $.ajax({
+        url: SPU + 'UserProfile/LoadUserInfo',
         type: "POST",
         processData: false,
         contentType: false,

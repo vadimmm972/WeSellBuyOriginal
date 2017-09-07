@@ -24,14 +24,49 @@ namespace WebSellBuy.Controllers
         }
 
         [HttpPost]
-        public string CheckUserPassword(string _password)
+        public string CheckUserPassword(string _password , string _url)
         {
             if (Request.Cookies["AuthenticationSellBuy"] != null)
             {
                 var value = Request.Cookies["AuthenticationSellBuy"].Value;
-                return mgTools.CheckPassTools(Convert.ToInt16(value),_password);
+                string _result = mgTools.CheckPassTools(Convert.ToInt16(value), _password);
+                if (_result == "success")
+                {
+                    if (_url == "UserProfile")
+                    {
+                        HttpCookie aCookie = new HttpCookie("UserProfileCoockie");
+                        aCookie.Value = value.ToString();
+                        aCookie.Expires = DateTime.Now.AddDays(1);
+                        Response.Cookies.Add(aCookie);
+                    }
+                    else if (_url == "Manager")
+                    {
+                        HttpCookie aCookie = new HttpCookie("ManagerCoockie");
+                        aCookie.Value = value.ToString();
+                        aCookie.Expires = DateTime.Now.AddDays(1);
+                        Response.Cookies.Add(aCookie);
+                    }
+                }
+                return _result;
             }
             return "Please sign in";
+        }
+
+        [HttpPost]
+        public void SignOutUserManager()
+        {
+            HttpCookie myCookie = new HttpCookie("ManagerCoockie");
+            // lblLogin.Text = "Cookie = " + myCookie.Value;
+            myCookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(myCookie);
+        }
+        [HttpPost]
+        public void SignOutUserProfile()
+        {
+            HttpCookie myCookie = new HttpCookie("UserProfileCoockie");
+            // lblLogin.Text = "Cookie = " + myCookie.Value;
+            myCookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(myCookie);
         }
 	}
 }

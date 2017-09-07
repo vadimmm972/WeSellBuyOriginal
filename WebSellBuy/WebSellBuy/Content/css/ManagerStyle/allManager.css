@@ -1,0 +1,9 @@
+﻿body {
+}
+
+.btnSignInManager{
+        float: right;
+    position: absolute;
+    right: 10px;
+    top: 3px;
+}

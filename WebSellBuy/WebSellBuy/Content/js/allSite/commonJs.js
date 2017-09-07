@@ -228,17 +228,27 @@ function ChecUserkPassword(){
     }
     else {
         $.ajax({
-            url: 'Manager/CheckUserPassword',
+            url: SPU + 'Manager/CheckUserPassword',
             type: "POST",
-            data: { _password: pass },
+            data: { _password: pass, _url: redirectUrl },
             success: function (response) {
                 if (response == "success") {
                     if (redirectUrl != "") {
-                        window.location.href = SPU + "Manager";
+                        if (redirectUrl == "Manager")
+                        {
+                            window.open(SPU + redirectUrl);
+                        }
+                        else {
+                            window.location.href = SPU + redirectUrl;
+                        }
+                        
                     }
                     else {
                         opendialog(response);
                     }
+                }
+                else {
+                    opendialog(response);
                 }
              
             },

@@ -12,11 +12,8 @@ namespace OperationTools.common
        DB_User dbUser = new DB_User();
        public string CheckPassTools(int _id,string _pass)
        {
-           if(dbUser.CheckPassProfile(_id,_pass))
-           {
-               return "success";
-           }
-           return "Please Sign In";
+           string result = dbUser.CheckPassProfile(_id,_pass);
+           return result;
        }
     }
 }

@@ -178,6 +178,8 @@
     <Content Include="Content\css\allPages\demo.css" />
     <Content Include="Content\css\allPages\layoutPage.css" />
     <Content Include="Content\css\allPages\loader.css" />
+    <Content Include="Content\css\allPages\select\generic.css" />
+    <Content Include="Content\css\allPages\select\style.css" />
     <Content Include="Content\css\allPages\updateInfoProfile.css" />
     <Content Include="Content\css\AuthenticationStyle\authentication.css" />
     <Content Include="Content\css\bootstrap\bootstrap-theme.css" />
@@ -185,6 +187,7 @@
     <Content Include="Content\css\bootstrap\bootstrap.css" />
     <Content Include="Content\css\bootstrap\bootstrap.min.css" />
     <Content Include="Content\css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\css\ManagerStyle\allManager.css" />
     <Content Include="Content\css\ManagerStyle\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\css\ManagerStyle\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Content\css\ManagerStyle\bootstrap\css\bootstrap-reboot.css" />
@@ -221,6 +224,7 @@
     <Content Include="Content\images\userPhotoForProfile\profile_827279299_us.jpg" />
     <Content Include="Content\js\allSite\commonJs.js" />
     <Content Include="Content\js\allSite\popup.js" />
+    <Content Include="Content\js\allSite\select_All.js" />
     <Content Include="Content\js\allSite\updateInfoProfile.js" />
     <Content Include="Content\js\AuthenticationJs\SignIn_SignUp.js" />
     <Content Include="Content\js\bootsrap\bootstrap.js" />

@@ -12,7 +12,7 @@
         }
 
         $.ajax({
-            url: 'Manager/CreateNewShop',
+            url: SPU+ 'Manager/CreateNewShop',
             type: "POST",
             processData: false,
             contentType: false,
@@ -24,4 +24,17 @@
             }
         });
     }
+}
+
+function LogOutManager(){
+    $.ajax({
+        url: SPU + 'Manager/SignOutUserManager',
+        type: "POST",
+        processData: false,
+        contentType: false,
+        //data: { _name: name, _image: imageName, _password: pass },
+        success: function (response) {
+            window.location.reload();
+        }
+    });
 }

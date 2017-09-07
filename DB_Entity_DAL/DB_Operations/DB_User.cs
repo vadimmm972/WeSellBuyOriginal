@@ -463,7 +463,7 @@ namespace DB_Entity_DAL.DB_Operations
             }
         }
 
-        public bool CheckPassProfile(int _id , string _password)
+        public string CheckPassProfile(int _id , string _password)
         {
             try
             {
@@ -474,9 +474,9 @@ namespace DB_Entity_DAL.DB_Operations
                     {
                         if (user.C_password == _password)
                         {
-                            return true;
+                            return "success";
                         }
-                        return false;
+                        return "Не верный пароль";
                     }
 
                 }
@@ -484,9 +484,9 @@ namespace DB_Entity_DAL.DB_Operations
             catch(Exception ex)
             {
                 nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_User -> CheckPassProfile :\r\n Message: " + ex.Message + "\r\n " + ex.StackTrace + "", 0);
-                return false;
+                return "Error";
             }
-            return false;
+            return "Eroor";
         }
     }
 }

@@ -37,7 +37,8 @@ function registrationUser() {
     else {
         //var imageName = UploadImage(2);
         if (imageName == "") {
-            alert("Загрузите изображения");
+            // alert("Загрузите изображения");
+            imageName = "anonymousUser";
         }
         else {
             $.ajax({
@@ -46,10 +47,10 @@ function registrationUser() {
                 data: { _surname: surname, _name: name, _lastname: lastname, _phone: phone, _email: email, _login: login, _password: password, _idCountry: checkIdCountry, _idRegion: checkIdRegion, _idCity: checkIdCity, _photo: imageName },
                 success: function (response) {
                     if (response != "") {
-                        alert(response);
+                        opendialog(response);
                     }
                     else {
-                        window.location.href = "SignIn";
+                        window.location.href = SPU + "SignIn";
                     }
                 }
             });
@@ -71,10 +72,10 @@ function SignIn() {
         data: { _login:login , _password:password},
         success: function (response) {
             if (response != "success") {
-                alert(response);
+                opendialog(response);
             }
             else {
-                window.location.href = "Home";
+                window.location.href = SPU + "Home";
             }
         }
     });

@@ -1,4 +1,4 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+﻿@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
 *{
 	padding:0;
@@ -93,6 +93,67 @@ footer{
 	position: fixed;
 	bottom: 0;
 }
+/* Делаем затемнение заднего плана */
+.back-dialog {
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+}
+/* Позиционируем блок с контентом */
+.dialog-content {
+    position: relative;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 0 10px 0 10px;
+    margin: 40px auto 0px auto;
+    min-width: 150px;
+    max-width: 600px;
+    min-height: 150px;
+    max-height: 600px;
+    padding-bottom: 10px;
+    background-color: white;
+    border-radius: 0 0 5px 5px;
+}
+/* Позиционируем верхний бар */
+.dialog-title {
+    margin: 0 -10px 0 -10px;
+    text-align: center;
+    position: relative;
+    vertical-align: middle;
+    height: 30px;
+    background-color: #3498DB;
+    color: #fff;
+}
+
+    .dialog-title span {
+        font-size: 25px;
+        padding-left: 10px;
+    }
+/* Делаем кнопку закрытия окна */
+.close-dialog {
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    color: #fff;
+    background-color: #2574A9;
+    height: 30px;
+    width: 30px;
+    border: 0;
+    text-decoration: none;
+}
+
+    .close-dialog:before {
+        font-family: Arial;
+        color: rgba(255, 255, 255, 0.9);
+        content: "x";
+        font-size: 20px;
+        text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+        outline: none;
+    }
 
 @media (max-height:800px){
 	footer { position: static; }
