@@ -93,6 +93,7 @@
     <Property Name="rating" Type="float" />
     <Property Name="id_magazine" Type="int" />
     <Property Name="_status" Type="int" />
+    <Property Name="id_subcategory" Type="int" />
   </EntityType>
   <EntityType Name="Regions">
     <Key>
@@ -102,13 +103,21 @@
     <Property Name="name_region" Type="nvarchar" MaxLength="55" Nullable="false" />
     <Property Name="id_country" Type="int" />
   </EntityType>
-  <EntityType Name="UserMagazines">
+  <EntityType Name="Shops">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_user" Type="int" />
     <Property Name="id_magazine" Type="int" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_category" Type="int" />
+    <Property Name="name_subcategory" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -251,6 +260,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Products__id_sub__52593CB8">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="id_subcategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Regions__id_coun__164452B1">
     <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
     <End Role="Regions" Type="Self.Regions" Multiplicity="*" />
@@ -287,26 +308,38 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__SubCatego__id_ca__4D94879B">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="id_category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__UserMagaz__id_ma__440B1D61">
     <End Role="Magazine" Type="Self.Magazine" Multiplicity="0..1" />
-    <End Role="UserMagazines" Type="Self.UserMagazines" Multiplicity="*" />
+    <End Role="Shops" Type="Self.Shops" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Magazine">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="UserMagazines">
+      <Dependent Role="Shops">
         <PropertyRef Name="id_magazine" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__UserMagaz__id_us__4316F928">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-    <End Role="UserMagazines" Type="Self.UserMagazines" Multiplicity="*" />
+    <End Role="Shops" Type="Self.Shops" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="UserMagazines">
+      <Dependent Role="Shops">
         <PropertyRef Name="id_user" />
       </Dependent>
     </ReferentialConstraint>
@@ -371,7 +404,8 @@
     <EntitySet Name="Magazine" EntityType="Self.Magazine" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UserMagazines" EntityType="Self.UserMagazines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shops" EntityType="Self.Shops" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Basket__id_produ__38996AB5" Association="Self.FK__Basket__id_produ__38996AB5">
       <End Role="Products" EntitySet="Products" />
@@ -413,6 +447,10 @@
       <End Role="Magazine" EntitySet="Magazine" />
       <End Role="Products" EntitySet="Products" />
     </AssociationSet>
+    <AssociationSet Name="FK__Products__id_sub__52593CB8" Association="Self.FK__Products__id_sub__52593CB8">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
     <AssociationSet Name="FK__Regions__id_coun__164452B1" Association="Self.FK__Regions__id_coun__164452B1">
       <End Role="Countries" EntitySet="Countries" />
       <End Role="Regions" EntitySet="Regions" />
@@ -425,13 +463,17 @@
       <End Role="Regions" EntitySet="Regions" />
       <End Role="City" EntitySet="City" />
     </AssociationSet>
+    <AssociationSet Name="FK__SubCatego__id_ca__4D94879B" Association="Self.FK__SubCatego__id_ca__4D94879B">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="SubCategory" EntitySet="SubCategory" />
+    </AssociationSet>
     <AssociationSet Name="FK__UserMagaz__id_ma__440B1D61" Association="Self.FK__UserMagaz__id_ma__440B1D61">
       <End Role="Magazine" EntitySet="Magazine" />
-      <End Role="UserMagazines" EntitySet="UserMagazines" />
+      <End Role="Shops" EntitySet="Shops" />
     </AssociationSet>
     <AssociationSet Name="FK__UserMagaz__id_us__4316F928" Association="Self.FK__UserMagaz__id_us__4316F928">
       <End Role="Users" EntitySet="Users" />
-      <End Role="UserMagazines" EntitySet="UserMagazines" />
+      <End Role="Shops" EntitySet="Shops" />
     </AssociationSet>
     <AssociationSet Name="FK__Users__id_countr__300424B4" Association="Self.FK__Users__id_countr__300424B4">
       <End Role="Countries" EntitySet="Countries" />

@@ -68,5 +68,33 @@ namespace WebSellBuy.Controllers
             myCookie.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Add(myCookie);
         }
+
+
+        [HttpPost]
+        public JsonResult GetAllCategory()
+        {
+            return Json(mgTools.GetAllCategories());
+        }
+
+        [HttpPost]
+        public bool CreateNewShop(string _name , string _pass , int _category , string _photo)
+        {
+
+            if (_name == "" || _pass == "" || _category <= 0 || _photo == "")
+            {
+                return false;
+            }
+            if (Request.Cookies["AuthenticationSellBuy"] != null)
+            {
+                var id = Request.Cookies["AuthenticationSellBuy"].Value;
+                bool reuslt = mgTools.CreateNewShopTools(_name, _pass, _category, _photo, Convert.ToInt32(id));
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
 	}
 }

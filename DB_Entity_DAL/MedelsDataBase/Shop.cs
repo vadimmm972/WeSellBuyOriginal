@@ -12,20 +12,13 @@ namespace DB_Entity_DAL.MedelsDataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class Category
+    public partial class Shop
     {
-        public Category()
-        {
-            this.Magazines = new HashSet<Magazine>();
-            this.Products = new HashSet<Product>();
-            this.SubCategories = new HashSet<SubCategory>();
-        }
-    
         public int id { get; set; }
-        public string name_category { get; set; }
+        public Nullable<int> id_user { get; set; }
+        public Nullable<int> id_magazine { get; set; }
     
-        public virtual ICollection<Magazine> Magazines { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
-        public virtual ICollection<SubCategory> SubCategories { get; set; }
+        public virtual Magazine Magazine { get; set; }
+        public virtual User User { get; set; }
     }
 }

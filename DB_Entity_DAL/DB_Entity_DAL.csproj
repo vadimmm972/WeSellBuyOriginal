@@ -116,10 +116,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SellBuy_Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="MedelsDataBase\User.cs">
+    <Compile Include="MedelsDataBase\Shop.cs">
       <DependentUpon>SellBuy_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedelsDataBase\UserMagazine.cs">
+    <Compile Include="MedelsDataBase\SubCategory.cs">
+      <DependentUpon>SellBuy_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedelsDataBase\User.cs">
       <DependentUpon>SellBuy_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="OperationslogError.cs" />

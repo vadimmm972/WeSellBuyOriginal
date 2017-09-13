@@ -17,7 +17,7 @@ namespace DB_Entity_DAL.MedelsDataBase
         public Magazine()
         {
             this.Products = new HashSet<Product>();
-            this.UserMagazines = new HashSet<UserMagazine>();
+            this.Shops = new HashSet<Shop>();
         }
     
         public int id { get; set; }
@@ -30,6 +30,6 @@ namespace DB_Entity_DAL.MedelsDataBase
     
         public virtual Category Category { get; set; }
         public virtual ICollection<Product> Products { get; set; }
-        public virtual ICollection<UserMagazine> UserMagazines { get; set; }
+        public virtual ICollection<Shop> Shops { get; set; }
     }
 }

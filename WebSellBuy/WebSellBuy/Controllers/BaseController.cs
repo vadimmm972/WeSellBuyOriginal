@@ -8,6 +8,12 @@ using System.Web.Mvc;
 
 namespace WebSellBuy.Controllers
 {
+
+    public class StoreInfo
+    {
+        public int idUser { get; set; }
+    }
+
     public class BaseController : Controller
     {
         //

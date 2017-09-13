@@ -15,7 +15,7 @@
 
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a class="button28" href="#tab1" role="tab" data-toggle="tab">Информация</a></li>
-        <li role="presentation"><a class="button28" href="#tab2" role="tab" data-toggle="tab">Создать магазин</a></li>
+        <li role="presentation"><a onclick="insertInfoCategory()" class="button28" href="#tab2" role="tab" data-toggle="tab">Создать магазин</a></li>
         <li role="presentation"><a class="button28" href="#tab3" role="tab" data-toggle="tab">Все магазины</a></li>
         <li role="presentation"><a class="button28" href="#tab4" role="tab" data-toggle="tab">Поиск по магазинам</a></li>
     </ul>
@@ -44,36 +44,8 @@
                                     </div>
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <select class="turnintodropdown_demo2">
-                                            <option>Пожалуйста, выберите категорию:</option>
-                                            <option>Австралия</option>
-                                            <option>Бельгия</option>
-                                            <option>Болгария</option>
-                                            <option>Хорватия</option>
-                                            <option>Кипр</option>
-                                            <option>Чехия</option>
-                                            <option>Дания</option>
-                                            <option>Эстония</option>
-                                            <option>Финляндия</option>
-                                            <option>Франция</option>
-                                            <option>Германия</option>
-                                            <option>Греция</option>
-                                            <option>Венгрия</option>
-                                            <option>Ирландия</option>
-                                            <option>Италия</option>
-                                            <option>Латвия</option>
-                                            <option>Литва</option>
-                                            <option>Люксембург</option>
-                                            <option>Мальта</option>
-                                            <option>Нидерланды</option>
-                                            <option>Польша</option>
-                                            <option>Португалия</option>
-                                            <option>Румыния</option>
-                                            <option>Словакия</option>
-                                            <option>Словения</option>
-                                            <option>Испания</option>
-                                            <option>Швеция</option>
-                                            <option>Великобритания</option>
+                                        <select id="categoryForManager" >
+                                            <option value="0">Пожалуйста, выберите категорию:</option>
                                         </select>
                                     </div>
                                 </div>
@@ -96,7 +68,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center col-xs-12">
-                                        <input type="button" class="btn btn-default" value="Submit" />
+                                        <input type="button" class="btn btn-default" value="Создать"  onclick="createNewShop()"/>
                                     </div>
                             </div>
                         </div>

@@ -35,6 +35,7 @@ namespace DB_Entity_DAL.MedelsDataBase
         public Nullable<double> rating { get; set; }
         public Nullable<int> id_magazine { get; set; }
         public Nullable<int> C_status { get; set; }
+        public Nullable<int> id_subcategory { get; set; }
     
         public virtual ICollection<Basket> Baskets { get; set; }
         public virtual Brand Brand { get; set; }
@@ -42,5 +43,6 @@ namespace DB_Entity_DAL.MedelsDataBase
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<LastView> LastViews { get; set; }
         public virtual Magazine Magazine { get; set; }
+        public virtual SubCategory SubCategory { get; set; }
     }
 }

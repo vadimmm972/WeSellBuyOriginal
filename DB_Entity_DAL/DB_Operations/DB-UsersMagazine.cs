@@ -9,12 +9,12 @@ namespace DB_Entity_DAL.DB_Operations
 {
     public class DB_UsersMagazine
     {
-        public bool InsertUserMagazine(UserMagazine us_m)
+        public bool InsertUserMagazine(Shop us_m)
         {
             try
             {
                 Sell_BuyEntities db = new Sell_BuyEntities();
-                db.UserMagazines.Add(us_m);
+                db.Shops.Add(us_m);
                 db.SaveChanges();
                 return true;
             }

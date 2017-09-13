@@ -9,6 +9,8 @@ namespace DB_Entity_DAL.DB_Operations
 {
    public class DB_Category
     {
+        private OperationslogError nLog = new OperationslogError();
+        //private static Logger logger = LogManager.GetCurrentClassLogger();
         public string InsertCategory(Category category)
         {
             try
@@ -74,8 +76,10 @@ namespace DB_Entity_DAL.DB_Operations
                     return category;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_Category -> GetallCategory :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+              
                 return null;
             }
         }

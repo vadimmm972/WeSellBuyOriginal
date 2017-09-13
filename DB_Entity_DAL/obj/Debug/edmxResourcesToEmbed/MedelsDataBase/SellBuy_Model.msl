@@ -78,6 +78,7 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="Sell_BuyModel.Product">
         <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="id_subcategory" ColumnName="id_subcategory" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="delivery_date" ColumnName="delivery_date" />
@@ -101,15 +102,6 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name_region" ColumnName="name_region" />
           <ScalarProperty Name="id_country" ColumnName="id_country" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="UserMagazines">
-      <EntityTypeMapping TypeName="Sell_BuyModel.UserMagazine">
-        <MappingFragment StoreEntitySet="UserMagazines">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_user" ColumnName="id_user" />
-          <ScalarProperty Name="id_magazine" ColumnName="id_magazine" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -141,6 +133,24 @@
           <ScalarProperty Name="id_region" ColumnName="id_region" />
           <ScalarProperty Name="id_country" ColumnName="id_country" />
           <ScalarProperty Name="name_sity" ColumnName="name_sity" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shops">
+      <EntityTypeMapping TypeName="Sell_BuyModel.Shop">
+        <MappingFragment StoreEntitySet="Shops">
+          <ScalarProperty Name="id_magazine" ColumnName="id_magazine" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubCategories">
+      <EntityTypeMapping TypeName="Sell_BuyModel.SubCategory">
+        <MappingFragment StoreEntitySet="SubCategory">
+          <ScalarProperty Name="name_subcategory" ColumnName="name_subcategory" />
+          <ScalarProperty Name="id_category" ColumnName="id_category" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

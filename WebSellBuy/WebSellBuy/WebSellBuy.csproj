@@ -209,6 +209,8 @@
     <Content Include="Content\gif\ajax-loader.gif" />
     <Content Include="Content\images\fontAuthentication\fonBody.jpg" />
     <Content Include="Content\images\logoImages\logoSite.png" />
+    <Content Include="Content\images\selectImage\select-arrow-close.png" />
+    <Content Include="Content\images\selectImage\select-arrow-open.png" />
     <Content Include="Content\images\userPhotoForProfile\profile_108959234_us.jpg" />
     <Content Include="Content\images\userPhotoForProfile\profile_175200708_us.jpg" />
     <Content Include="Content\images\userPhotoForProfile\profile_186595046_us.jpg" />

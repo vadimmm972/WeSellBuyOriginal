@@ -19,7 +19,7 @@ namespace DB_Entity_DAL.MedelsDataBase
             this.Baskets = new HashSet<Basket>();
             this.Comments = new HashSet<Comment>();
             this.LastViews = new HashSet<LastView>();
-            this.UserMagazines = new HashSet<UserMagazine>();
+            this.Shops = new HashSet<Shop>();
         }
     
         public int id { get; set; }
@@ -45,7 +45,7 @@ namespace DB_Entity_DAL.MedelsDataBase
         public virtual Language Language { get; set; }
         public virtual ICollection<LastView> LastViews { get; set; }
         public virtual Region Region { get; set; }
-        public virtual ICollection<UserMagazine> UserMagazines { get; set; }
         public virtual City City { get; set; }
+        public virtual ICollection<Shop> Shops { get; set; }
     }
 }
