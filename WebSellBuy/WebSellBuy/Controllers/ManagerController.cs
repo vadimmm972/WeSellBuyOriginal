@@ -75,26 +75,40 @@ namespace WebSellBuy.Controllers
         {
             return Json(mgTools.GetAllCategories());
         }
-
+        
         [HttpPost]
-        public bool CreateNewShop(string _name , string _pass , int _category , string _photo)
+        public string CreateShop(string _nameShop, string _passShop, string _categoryShop, string _photoShop)
         {
-
-            if (_name == "" || _pass == "" || _category <= 0 || _photo == "")
+            int IdCategory = Convert.ToInt32(_categoryShop);
+            if (_nameShop == "" || _passShop == "" || IdCategory <= 0 || _photoShop == "")
             {
-                return false;
+                return "Заполните все поля";
             }
             if (Request.Cookies["AuthenticationSellBuy"] != null)
             {
                 var id = Request.Cookies["AuthenticationSellBuy"].Value;
-                bool reuslt = mgTools.CreateNewShopTools(_name, _pass, _category, _photo, Convert.ToInt32(id));
-                return true;
+                string reuslt = mgTools.CreateNewShopTools(_nameShop, _passShop, IdCategory, _photoShop, Convert.ToInt32(id));
+                return reuslt;
             }
             else
             {
-                return false;
+                return "Войдите в систему";
             }
-            
+        }
+        
+        [HttpPost]
+        public JsonResult GetAllMyShops()
+        {
+            if (Request.Cookies["AuthenticationSellBuy"] != null)
+            {
+                var id = Request.Cookies["AuthenticationSellBuy"].Value;
+           
+              return Json(mgTools.GetListMyShops(Convert.ToInt32(id)));
+            }
+            else
+            {
+                return Json("Войдите в систему");
+            }
         }
 	}
 }

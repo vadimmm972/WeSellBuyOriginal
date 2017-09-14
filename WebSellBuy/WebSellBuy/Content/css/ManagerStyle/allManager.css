@@ -1,8 +1,8 @@
 ﻿body {
 }
 
-.btnSignInManager{
-        float: right;
+.btnSignInManager {
+    float: right;
     position: absolute;
     right: 10px;
     top: 3px;
@@ -24,3 +24,60 @@
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+
+
+/*All Shop style*/
+.clsAllMyShops {
+    padding: 30px;
+}
+
+.logoMyShop {
+    width: 100px;
+}
+
+.badgeImage {
+    float: left;
+}
+
+.badgeNameShop {
+    text-align: center;
+    width: 50%;
+    height: 63px;
+    float: left;
+    display: table;
+    text-align: center;
+}
+.positionLogoMyShop{
+  display: table-cell;
+  vertical-align: middle;
+
+  font-family: Garamond, serif;
+line-height: 1em;
+color: sienna;
+font-weight:bold;
+font-size: 37px;
+text-shadow:0px 0px 0 rgb(231,231,231),1px 0px 0 rgb(216,216,216),2px 0px 0 rgb(202,202,202),3px 0px 0 rgb(187,187,187),4px 0px 0 rgb(173,173,173),5px 0px 0 rgb(158,158,158), 6px 0px 0 rgb(144,144,144),7px 0px 6px rgba(0,0,0,0.6),7px 0px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2)
+}
+.styleBlockShop{
+    background:aliceblue;
+    margin:3px;
+}
+
+a.button7 {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+  float:right;
+  margin:5px;
+} 
+a.button7:hover { background: rgb(53, 167, 110); }
+a.button7:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+/*End style all shops*/

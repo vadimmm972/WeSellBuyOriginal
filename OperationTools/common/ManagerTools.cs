@@ -8,6 +8,12 @@ using System.Threading.Tasks;
 
 namespace OperationTools.common
 {
+    public class InfoShop
+    {
+        public int IdShop { get; set; }
+        public string NameShop { get; set; }
+        public string PhotoShop { get; set; }
+    }
     public class CategoryTools
     {
        public int id { get; set; }
@@ -16,7 +22,9 @@ namespace OperationTools.common
     public class ManagerTools
     {
         DB_User dbUser = new DB_User();
-        DB_Category dbCateory = new DB_Category();
+        DB_Magazine dbMag = new DB_Magazine();
+        DB_Shop dbShop = new DB_Shop();
+        private AllUrlPuth url = new AllUrlPuth();
         public string CheckPassTools(int _id, string _pass)
         {
             string result = dbUser.CheckPassProfile(_id, _pass);
@@ -25,6 +33,7 @@ namespace OperationTools.common
 
         public List<CategoryTools> GetAllCategories()
         {
+            DB_Category dbCateory = new DB_Category();
             List<CategoryTools> lstCat = null;
             var allcategories = dbCateory.GetallCategory();
 
@@ -40,17 +49,63 @@ namespace OperationTools.common
             return lstCat;
         }
 
-        public bool CreateNewShopTools(string _name , string _pass , int _category , string _photo , int _iduser)
+        public string CreateNewShopTools(string _name , string _pass , int _category , string _photo , int _iduser)
         {
-            Magazine magZ = new Magazine
+            bool checkMagazine = dbMag.CheckMagazine(_name);
+            if(checkMagazine)
             {
-                name_magazine = _name,
-                C_password = _pass,
-                id_category = _category,
-                C_image = _photo,
-                dateCreate = DateTime.Now
-            };
-            return true;
+                Magazine magZ = new Magazine
+                {
+                    name_magazine = _name,
+                    C_password = _pass,
+                    id_category = _category,
+                    C_image = _photo,
+                    dateCreate = DateTime.Now
+                };
+                int idMagazine = dbMag.InsertMagazine(magZ);
+                if (idMagazine != 0)
+                {
+                  
+                    Shop newShop = new Shop
+                    {
+                        id_user = _iduser,
+                        id_magazine = idMagazine
+                    };
+
+                    bool resAddednewShop = dbShop.InsertUserShop(newShop);
+                    if(resAddednewShop)
+                    {
+                        return "Магазин ("+_name+") успешно создан";
+                    }
+                    else
+                    {
+                        return "Ошибка , обратитесь к разработчику сайта";
+                    }
+                }
+
+                return "Ошибка при создание магазина";
+            }
+            else
+            {
+                return "Магазин с таким название уже существует";
+            }
         }
+
+        public List<InfoShop> GetListMyShops(int _id)
+        {
+            List<InfoShop> lstShops = null;
+
+            var allShop = dbShop.GeAllShopsByUserId(_id);
+            if (allShop != null)
+            {
+                lstShops = new List<InfoShop>();
+                foreach(Shop s in allShop)
+                {
+                    lstShops.Add(new InfoShop { IdShop = s.id, NameShop = s.Magazine.name_magazine, PhotoShop = url.photoShop+s.Magazine.C_image });
+                }
+            }
+            return lstShops;
+        }
+        
     }
 }

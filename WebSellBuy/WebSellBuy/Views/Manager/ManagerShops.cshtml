@@ -16,7 +16,7 @@
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a class="button28" href="#tab1" role="tab" data-toggle="tab">Информация</a></li>
         <li role="presentation"><a onclick="insertInfoCategory()" class="button28" href="#tab2" role="tab" data-toggle="tab">Создать магазин</a></li>
-        <li role="presentation"><a class="button28" href="#tab3" role="tab" data-toggle="tab">Все магазины</a></li>
+        <li role="presentation"><a onclick="insertMyShops()" class="button28" href="#tab3" role="tab" data-toggle="tab">Все магазины</a></li>
         <li role="presentation"><a class="button28" href="#tab4" role="tab" data-toggle="tab">Поиск по магазинам</a></li>
     </ul>
     <div class="tab-content">
@@ -68,7 +68,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center col-xs-12">
-                                        <input type="button" class="btn btn-default" value="Создать"  onclick="createNewShop()"/>
+                                        <a  class="btn btn-default" onclick="createNewShop()">Создать</a>
                                     </div>
                             </div>
                         </div>
@@ -78,7 +78,40 @@
 
         </div>
         <div role="tabpanel" class="tab-pane" id="tab3">
-            Занятие ардритов с планеты Энтеропия.
+            <div class="clsAllMyShops">
+                <ul class="list-group" id="MyShops">
+                    @*<li class="list-group-item styleBlockShop">
+                        <div class="badgeImage"><img class="logoMyShop" src="http://www.startupremarkable.com/wp-content/uploads/2015/02/a-book-a-week-image.jpg" /></div>
+                        <div class="badgeNameShop"><span class="positionLogoMyShop">NameShop</span></div>
+                        <div style="float:right;">
+                            <a href="#" class="button28">Изменить</a>
+                            <a href="#" class="button28">Перейти</a>
+                            <a href="#" class="button28">Удалить</a>
+                        </div>
+                    </li>
+                    
+                    <li class="list-group-item styleBlockShop">
+                        <div class="badgeImage"><img class="logoMyShop" src="http://www.startupremarkable.com/wp-content/uploads/2015/02/a-book-a-week-image.jpg" /></div>
+                        <div class="badgeNameShop"><span class="positionLogoMyShop">NameShop</span></div>
+                        <div style="float:right;">
+                            <a href="#" class="button28">Изменить</a>
+                            <a href="#" class="button28">Перейти</a>
+                            <a href="#" class="button28">Удалить</a>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item styleBlockShop">
+                        <div class="badgeImage"><img class="logoMyShop" src="http://www.startupremarkable.com/wp-content/uploads/2015/02/a-book-a-week-image.jpg" /></div>
+                        <div class="badgeNameShop"><span class="positionLogoMyShop">NameShop</span></div>
+                        <div style="float:right;">
+                            <a href="#" class="button28">Изменить</a>
+                            <a href="#" class="button28">Перейти</a>
+                            <a href="#" class="button28">Удалить</a>
+                        </div>
+                    </li>*@
+
+                </ul>
+            </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="tab4">
             4 таб

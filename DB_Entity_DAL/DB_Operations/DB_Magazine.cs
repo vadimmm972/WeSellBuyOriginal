@@ -9,6 +9,7 @@ namespace DB_Entity_DAL.DB_Operations
 {
     public class DB_Magazine
     {
+        OperationslogError nLog = new OperationslogError();
         public int InsertMagazine(Magazine magazine)
         {
             try
@@ -45,6 +46,48 @@ namespace DB_Entity_DAL.DB_Operations
             }
 
         }
+
+        public bool CheckMagazine(string name)
+        {
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var magazine = db.Magazines.FirstOrDefault(u => u.name_magazine == name);
+                if (magazine == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_Magazine -> CheckMagazine :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+                return false;
+            }
+
+        }
+        //public void GetAllShopsById(int id)
+        //{
+        //      try
+        //    {
+        //        Sell_BuyEntities db = new Sell_BuyEntities();
+        //        Magazine magazine = db.Magazines.Find(id);
+        //          var roles = db.Shops.Where(x => x.id_user == id).Select(x => x);
+        //        //db.Magazines.Attach(magazine);
+        //        //db.Magazines.Remove(magazine);
+        //        //db.SaveChanges();
+
+        //     //   return magazine.name_magazine + " was succefully delited";
+        //    }
+        //    catch (Exception e)
+        //    {
+        //      //  return "Error:" + e.Message;
+        //    }
+
+        //}
 
         public string DeleteMagazine(int id)
         {

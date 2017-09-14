@@ -55,8 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB_Operations\DB-Language.cs" />
-    <Compile Include="DB_Operations\DB-UsersMagazine.cs" />
+    <Compile Include="DB_Operations\DB_Language.cs" />
+    <Compile Include="DB_Operations\DB_Shop.cs" />
     <Compile Include="DB_Operations\DB_Basket.cs" />
     <Compile Include="DB_Operations\DB_Brand.cs" />
     <Compile Include="DB_Operations\DB_Category.cs" />

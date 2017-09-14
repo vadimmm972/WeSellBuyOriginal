@@ -9,5 +9,6 @@ namespace OperationTools.common
     public class AllUrlPuth
     {
         public string photoProfileUserPuth = "Content/images/userPhotoForProfile/";
+        public string photoShop = "Content/images/userPhotoForShops/";
     }
 }
