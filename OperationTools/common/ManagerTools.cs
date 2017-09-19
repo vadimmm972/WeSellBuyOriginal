@@ -11,6 +11,7 @@ namespace OperationTools.common
     public class InfoShop
     {
         public int IdShop { get; set; }
+        public int IdMagazine { get; set; }
         public string NameShop { get; set; }
         public string PhotoShop { get; set; }
     }
@@ -60,12 +61,12 @@ namespace OperationTools.common
                     C_password = _pass,
                     id_category = _category,
                     C_image = _photo,
-                    dateCreate = DateTime.Now
+                    dateCreate = DateTime.Now,
+                    idUserCreator = _iduser
                 };
                 int idMagazine = dbMag.InsertMagazine(magZ);
                 if (idMagazine != 0)
                 {
-                  
                     Shop newShop = new Shop
                     {
                         id_user = _iduser,
@@ -101,10 +102,28 @@ namespace OperationTools.common
                 lstShops = new List<InfoShop>();
                 foreach(Shop s in allShop)
                 {
-                    lstShops.Add(new InfoShop { IdShop = s.id, NameShop = s.Magazine.name_magazine, PhotoShop = url.photoShop+s.Magazine.C_image });
+                    lstShops.Add(new InfoShop { IdShop = s.id, IdMagazine = s.Magazine.id , NameShop = s.Magazine.name_magazine, PhotoShop = url.photoShop+s.Magazine.C_image });
                 }
             }
             return lstShops;
+        }
+
+        public string RemoveShopTools(int idShop , int idMag)
+        {
+            string result = "undefined";
+
+          //  result = dbShop.RemoveShopById(idShop);
+            result = dbShop.RemoveShopById(idMag);
+            if (result == "OK")
+            {
+                dbMag.DeleteMagazine(idMag);
+                result = "Магазин успешно удален";
+            }
+            else
+            {
+                return result;
+            }
+            return result;
         }
         
     }

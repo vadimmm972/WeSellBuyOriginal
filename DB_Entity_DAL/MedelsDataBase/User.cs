@@ -20,6 +20,7 @@ namespace DB_Entity_DAL.MedelsDataBase
             this.Comments = new HashSet<Comment>();
             this.LastViews = new HashSet<LastView>();
             this.Shops = new HashSet<Shop>();
+            this.Magazines = new HashSet<Magazine>();
         }
     
         public int id { get; set; }
@@ -47,5 +48,6 @@ namespace DB_Entity_DAL.MedelsDataBase
         public virtual Region Region { get; set; }
         public virtual City City { get; set; }
         public virtual ICollection<Shop> Shops { get; set; }
+        public virtual ICollection<Magazine> Magazines { get; set; }
     }
 }

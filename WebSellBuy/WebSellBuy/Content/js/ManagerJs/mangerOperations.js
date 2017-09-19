@@ -84,17 +84,32 @@ function insertMyShops() {
                 htmlShop.push("<div class=\"badgeNameShop\"><span class=\"positionLogoMyShop\">" + response[i].NameShop+ "</span></div>\r\n");
                 htmlShop.push("<div style=\"float:right;\">\r\n");
                 htmlShop.push(" <a href=\"#\" class=\"button28\">Изменить</a>\r\n");
-                htmlShop.push(" <a href=\"#\" class=\"button28\">Открыть</a>\r\n");
-                htmlShop.push(" <a href=\"#\" class=\"button28\">Удалить</a>\r\n");
+                htmlShop.push(" <a href=\"#\" class=\"button28\">Перейти</a>\r\n");
+                htmlShop.push(" <a onclick=\"removeThisShop(" + response[i].IdShop + " , " + response[i].IdMagazine + ")\" href=\"#\" class=\"button28\">Удалить</a>\r\n");
                 htmlShop.push("</div>\r\n");
                 htmlShop.push("</li>\r\n");
-
                // blockShops.append(htmlShop);
-                document.getElementById("MyShops").innerHTML = htmlShop.join("");
-                htmlShop = [];
             }
+            document.getElementById("MyShops").innerHTML = htmlShop.join("");
+            htmlShop = [];
         }
     });
+}
+
+function removeThisShop(idShop, idMag) {
+    if (idShop != "" && idShop != 0) {
+        $.ajax({
+            url: SPU + 'Manager/RemoveShop',
+            type: "POST",
+            data: { _idShop: idShop , _idMagazine: idMag },
+            success: function (response) {
+                opendialog(response);
+            }
+        });
+    }
+    else {
+        opendialog("Error");
+    }
 }
 
 function insertInfoCategory() {
@@ -102,6 +117,7 @@ function insertInfoCategory() {
         url: SPU + 'Manager/GetAllCategory',
         type: "POST",
         success: function (response) {
+            $("#categoryForManager").empty();
             var regSelect = document.getElementById("categoryForManager");
             for (var i = 0; i < response.length; i++) {
                 var option = document.createElement("option");

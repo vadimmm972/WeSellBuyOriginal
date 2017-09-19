@@ -79,6 +79,7 @@
           <Property Name="id_category" Type="int" />
           <Property Name="_password" Type="nvarchar" MaxLength="255" />
           <Property Name="dateCreate" Type="datetime" />
+          <Property Name="idUserCreator" Type="int" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
@@ -226,6 +227,18 @@
             </Principal>
             <Dependent Role="Magazine">
               <PropertyRef Name="id_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Magazine__idUser__5AEE82B9">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Magazine" Type="Self.Magazine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Magazine">
+              <PropertyRef Name="idUserCreator" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -440,6 +453,10 @@
             <End Role="Category" EntitySet="Category" />
             <End Role="Magazine" EntitySet="Magazine" />
           </AssociationSet>
+          <AssociationSet Name="FK__Magazine__idUser__5AEE82B9" Association="Self.FK__Magazine__idUser__5AEE82B9">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Magazine" EntitySet="Magazine" />
+          </AssociationSet>
           <AssociationSet Name="FK__Products__id_bra__267ABA7A" Association="Self.FK__Products__id_bra__267ABA7A">
             <End Role="Brand" EntitySet="Brand" />
             <End Role="Products" EntitySet="Products" />
@@ -583,6 +600,8 @@
           <Property Name="C_password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="dateCreate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Shops" Relationship="Sell_BuyModel.FK__UserMagaz__id_ma__440B1D611" FromRole="Magazine" ToRole="Shop" />
+          <Property Name="idUserCreator" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Sell_BuyModel.FK__Magazine__idUser__5AEE82B9" FromRole="Magazine" ToRole="User" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -650,6 +669,7 @@
           <NavigationProperty Name="Region" Relationship="Self.FK__Users__id_region__30F848ED" FromRole="Users" ToRole="Regions" />
           <NavigationProperty Name="City" Relationship="Sell_BuyModel.FK__Users__id_sity__31EC6D261" FromRole="User" ToRole="City" />
           <NavigationProperty Name="Shops" Relationship="Sell_BuyModel.FK__UserMagaz__id_us__4316F9281" FromRole="User" ToRole="Shop" />
+          <NavigationProperty Name="Magazines" Relationship="Sell_BuyModel.FK__Magazine__idUser__5AEE82B9" FromRole="User" ToRole="Magazine" />
         </EntityType>
         <Association Name="FK__Basket__id_produ__38996AB5">
           <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
@@ -918,6 +938,10 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Shop" EntitySet="Shops" />
           </AssociationSet>
+          <AssociationSet Name="FK__Magazine__idUser__5AEE82B9" Association="Sell_BuyModel.FK__Magazine__idUser__5AEE82B9">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Magazine" EntitySet="Magazines" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="City">
           <Key>
@@ -1035,6 +1059,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Magazine__idUser__5AEE82B9">
+          <End Type="Sell_BuyModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="Sell_BuyModel.Magazine" Role="Magazine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Magazine">
+              <PropertyRef Name="idUserCreator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1105,6 +1141,7 @@
           <EntitySetMapping Name="Magazines">
             <EntityTypeMapping TypeName="Sell_BuyModel.Magazine">
               <MappingFragment StoreEntitySet="Magazine">
+                <ScalarProperty Name="idUserCreator" ColumnName="idUserCreator" />
                 <ScalarProperty Name="dateCreate" ColumnName="dateCreate" />
                 <ScalarProperty Name="C_password" ColumnName="_password" />
                 <ScalarProperty Name="id" ColumnName="id" />

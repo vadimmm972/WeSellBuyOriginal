@@ -40,6 +40,7 @@
         <AssociationConnector Association="Sell_BuyModel.FK__UserMagaz__id_ma__440B1D611" />
         <AssociationConnector Association="Sell_BuyModel.FK__Products__id_sub__52593CB8" />
         <AssociationConnector Association="Sell_BuyModel.FK__UserMagaz__id_us__4316F9281" />
+        <AssociationConnector Association="Sell_BuyModel.FK__Magazine__idUser__5AEE82B9" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

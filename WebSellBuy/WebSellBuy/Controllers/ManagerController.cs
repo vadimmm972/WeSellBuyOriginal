@@ -110,5 +110,11 @@ namespace WebSellBuy.Controllers
                 return Json("Войдите в систему");
             }
         }
+
+        [HttpPost]
+        public string RemoveShop(int _idShop,int _idMagazine)
+        {
+            return mgTools.RemoveShopTools(_idShop, _idMagazine);
+        }
 	}
 }

@@ -27,9 +27,11 @@ namespace DB_Entity_DAL.MedelsDataBase
         public Nullable<int> id_category { get; set; }
         public string C_password { get; set; }
         public Nullable<System.DateTime> dateCreate { get; set; }
+        public Nullable<int> idUserCreator { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual ICollection<Product> Products { get; set; }
         public virtual ICollection<Shop> Shops { get; set; }
+        public virtual User User { get; set; }
     }
 }

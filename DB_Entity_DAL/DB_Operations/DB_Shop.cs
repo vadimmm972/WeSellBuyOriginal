@@ -43,6 +43,45 @@ namespace DB_Entity_DAL.DB_Operations
                 nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_Shop -> GeAllShopsByUserId :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
                 return null;
             }
+        }
+
+        public string RemoveShopById(int id)
+        {
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+
+                var shopList = db.Shops.Where(s => s.id_magazine == id).ToList();
+                if (shopList != null && shopList.Count != 0)
+                {
+                    db.Shops.RemoveRange(shopList);
+                    db.SaveChanges();
+                    return "OK";
+                }
+                else
+                {
+                    return "Магазин не найден";
+                }
+
+                //var shops = db.Shops.Find(0);
+                //if (shops != null)
+                //{
+                //    db.Shops.Attach(shops);
+                //    db.Shops.Remove(shops);
+                //    db.SaveChanges();
+                //    return "OK";
+                //}
+                //else
+                //{
+                //    return "Магазин не найден";
+                //}
+              
+            }
+            catch (Exception e)
+            {
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_Shop -> RemoveShopById :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+                return "Ошибка при удалении,обратитесь за помощью к администрации сайта";
+            }
            
         }
     }

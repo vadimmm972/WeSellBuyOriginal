@@ -82,6 +82,8 @@
     <Property Name="C_password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="dateCreate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Shops" Relationship="Sell_BuyModel.FK__UserMagaz__id_ma__440B1D611" FromRole="Magazine" ToRole="Shop" />
+    <Property Name="idUserCreator" Type="Int32" />
+    <NavigationProperty Name="User" Relationship="Sell_BuyModel.FK__Magazine__idUser__5AEE82B9" FromRole="Magazine" ToRole="User" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -149,6 +151,7 @@
     <NavigationProperty Name="Region" Relationship="Self.FK__Users__id_region__30F848ED" FromRole="Users" ToRole="Regions" />
     <NavigationProperty Name="City" Relationship="Sell_BuyModel.FK__Users__id_sity__31EC6D261" FromRole="User" ToRole="City" />
     <NavigationProperty Name="Shops" Relationship="Sell_BuyModel.FK__UserMagaz__id_us__4316F9281" FromRole="User" ToRole="Shop" />
+    <NavigationProperty Name="Magazines" Relationship="Sell_BuyModel.FK__Magazine__idUser__5AEE82B9" FromRole="User" ToRole="Magazine" />
   </EntityType>
   <Association Name="FK__Basket__id_produ__38996AB5">
     <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
@@ -417,6 +420,10 @@
       <End Role="User" EntitySet="Users" />
       <End Role="Shop" EntitySet="Shops" />
     </AssociationSet>
+    <AssociationSet Name="FK__Magazine__idUser__5AEE82B9" Association="Sell_BuyModel.FK__Magazine__idUser__5AEE82B9">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Magazine" EntitySet="Magazines" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="City">
     <Key>
@@ -531,6 +538,18 @@
       </Principal>
       <Dependent Role="Shop">
         <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Magazine__idUser__5AEE82B9">
+    <End Type="Sell_BuyModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="Sell_BuyModel.Magazine" Role="Magazine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Magazine">
+        <PropertyRef Name="idUserCreator" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
