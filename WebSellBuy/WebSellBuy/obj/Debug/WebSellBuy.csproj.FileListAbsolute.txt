@@ -59,4 +59,3 @@ M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\WebSellBuy\WebSellBuy\bin\OperationTool
 M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\WebSellBuy\WebSellBuy\bin\NLog.dll
 M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\WebSellBuy\WebSellBuy\bin\DB_Entity_DAL.pdb
 M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\WebSellBuy\WebSellBuy\bin\OperationTools.pdb
-M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\WebSellBuy\WebSellBuy\bin\NLog.xml

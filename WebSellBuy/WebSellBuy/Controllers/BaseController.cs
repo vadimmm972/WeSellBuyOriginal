@@ -8,12 +8,6 @@ using System.Web.Mvc;
 
 namespace WebSellBuy.Controllers
 {
-
-    public class StoreInfo
-    {
-        public int idUser { get; set; }
-    }
-
     public class BaseController : Controller
     {
         //
@@ -23,6 +17,42 @@ namespace WebSellBuy.Controllers
             return View();
         }
         Location locationTools = new Location();
+
+
+        public string UpdateImage()
+        {
+            try
+            {
+                var operation = System.Web.HttpContext.Current.Request.Form["changeUpdate"];
+                var pic = System.Web.HttpContext.Current.Request.Files["HelpSectionImages"];
+                var fileName = System.Web.HttpContext.Current.Request.Form["NameImageUpdate"].ToString();
+               
+                if (operation == "1")
+                {
+                    var path = Path.Combine(Server.MapPath("~/Content/images/imagesPhotos"), fileName.Trim());
+                    pic.SaveAs(path);
+                }
+                else if (operation == "2")
+                {
+                    var path = Path.Combine(Server.MapPath("~/Content/images/userPhotoForProfile"), fileName.Trim());
+                    pic.SaveAs(path);
+                    ViewBag.PhotoUser = fileName.Trim();
+                }
+                else if (operation == "3")
+                {
+                    var path = Path.Combine(Server.MapPath("~/Content/images/userPhotoForShops"), fileName.Trim());
+                    pic.SaveAs(path);
+                    ViewBag.PhotoUser = fileName.Trim();
+                }
+            }
+            catch(Exception e)
+            {
+                return "";
+            }
+           
+            return "success";
+        }
+
 
         public JsonResult UploadImage()
         {

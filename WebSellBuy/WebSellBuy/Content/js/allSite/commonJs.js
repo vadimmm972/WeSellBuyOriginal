@@ -71,7 +71,7 @@ function UploadImage(option) {
     data.append("elementid", 11);
     data.append("operation", op);
     $.ajax({
-        url: 'http://localhost:57363/Base/UploadImage',
+        url: SPU + 'Base/UploadImage',
         type: "POST",
         processData: false,
         contentType: false,

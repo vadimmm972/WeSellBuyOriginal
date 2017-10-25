@@ -1,4 +1,7 @@
-﻿function CerateShop() {
+﻿
+
+var IdMyShop = 0;
+function CerateShop() {
     var name = $("#nameShop");
     var pass = $("#passShop");
     var conpass = $("#confPassShop");
@@ -80,12 +83,13 @@ function insertMyShops() {
             for(var i=0;i<response.length;i++)
             {
                 htmlShop.push("<li class=\"list-group-item styleBlockShop\">\r\n");
-                htmlShop.push("<div class=\"badgeImage\"><img class=\"logoMyShop\" src=\"" + response[i].PhotoShop + "\" /></div>\r\n");
+                htmlShop.push("<div class=\"badgeImage\"><img class=\"logoMyShop\" src=\"../" + response[i].PhotoShop + "\" /></div>\r\n");
                 htmlShop.push("<div class=\"badgeNameShop\"><span class=\"positionLogoMyShop\">" + response[i].NameShop+ "</span></div>\r\n");
                 htmlShop.push("<div style=\"float:right;\">\r\n");
-                htmlShop.push(" <a href=\"#\" class=\"button28\">Изменить</a>\r\n");
+                htmlShop.push(" <a onclick=\"InsertInfoForUpdatMyMagazine(" + response[i].IdMagazine + ")\"  href=\"#tab5\" role=\"tab\" data-toggle=\"tab\" href=\"#\" class=\"button28\">Изменить</a>\r\n");
+               // htmlShop.push(" <a  href=\"#tab5\" role=\"tab\" data-toggle=\"tab\" href=\"#\" class=\"button28\">Изменить</a>\r\n");
                 htmlShop.push(" <a href=\"#\" class=\"button28\">Перейти</a>\r\n");
-                htmlShop.push(" <a onclick=\"removeThisShop(" + response[i].IdShop + " , " + response[i].IdMagazine + ")\" href=\"#\" class=\"button28\">Удалить</a>\r\n");
+                htmlShop.push(" <a onclick=\"removeThisShop(" + response[i].IdMagazine + ")\" href=\"#\" class=\"button28\">Удалить</a>\r\n");
                 htmlShop.push("</div>\r\n");
                 htmlShop.push("</li>\r\n");
                // blockShops.append(htmlShop);
@@ -101,7 +105,7 @@ function removeThisShop(idShop, idMag) {
         $.ajax({
             url: SPU + 'Manager/RemoveShop',
             type: "POST",
-            data: { _idShop: idShop , _idMagazine: idMag },
+            data: {_idMagazine: idMag },
             success: function (response) {
                 opendialog(response);
             }
@@ -128,5 +132,103 @@ function insertInfoCategory() {
         }
     });
 }
+
+
+
+function InsertInfoForUpdatMyMagazine(idMag){
+    if (idMag != 0) {
+        IdMyShop = idMag;
+        $.ajax({
+            url: SPU + 'Manager/GetInfoByMagazine',
+            type: "POST",
+            data: { _id: idMag },
+            success: function (response) {
+                if (response != null) {
+
+                    $(".button28").removeClass("active");
+                    $("#inputnameShop").val(response.NameShop);
+                    $("#inputpassword").val(response.NameShop);
+                    $(".profile-img-card").attr('src', response.PhotoShop);
+
+
+                    $("#categoryInfoForShop").empty();
+                    var regSelect = document.getElementById("categoryInfoForShop");
+                    for(var i=0;i<response.AllCategories.length;i++){
+                        var option = document.createElement("option");
+                        option.text = response.AllCategories[i].name;
+                        option.value = response.AllCategories[i].id;
+                        regSelect.add(option);
+                    }
+                    
+                    document.getElementById("categoryInfoForShop").value = response.Category;
+                }
+            }
+        });
+    }
+    else {
+        opendialog("Ошыбька");
+    }
+}
+
+
+function updatePhotoInServer(op){
+    if (IdMyShop != 0) {
+
+     
+           // op = 4;
+            loading(1);
+            var data = new FormData();
+            var files = $(".hiddenUpdatePhotoMySgop").get(0).files;
+            if (files.length > 0) {
+                data.append("HelpSectionImages", files[0]);
+
+            }
+            else {
+                alert("error");
+                return;
+            }
+        
+
+            var nameImageUpd = $("#profileShop-img").attr('src');
+            var n = nameImageUpd.lastIndexOf('/');
+            var result = nameImageUpd.substring(n + 1);
+
+            data.append("id", 11);
+            data.append("elementid", 11);
+            data.append("changeUpdate", op);
+            data.append("NameImageUpdate", result);
+           
+            $.ajax({
+                url: SPU + 'Base/UpdateImage',
+                type: "POST",
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    imageName = response;
+                    if (response != "") {
+                        //$("#profileShop-img").attr('src', nameImageUpd);
+                        // document.location.reload();
+                        var src = $("#profileShop-img").attr('src');
+                        $("#profileShop-img").removeAttr('src').attr('src', src);
+                        document.location.reload();
+                        
+                    }
+                    loading(0);
+                }
+            });
+        
+    }
+}
+
+function UpdatePhotoMyShop() {
+    $("#inputPhotoUpdateForFile").click();
+}
+
+function SaveInfoMyUpdateShop(event) {
+    //updatePhotoInServer()
+
+}
+
 
 

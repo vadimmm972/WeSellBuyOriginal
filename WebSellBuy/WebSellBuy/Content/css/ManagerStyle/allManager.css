@@ -8,7 +8,7 @@
     top: 3px;
 }
 
-#categoryForManager {
+.selectStyleCategory {
     color: #777;
     padding: 10px;
     font-size: 16px;
@@ -89,5 +89,9 @@ a.button7:active {
 .blockAllShops{
     width:60%;
     margin:auto;
+}
+
+#inputPhotoUpdateForFile{
+    display:none;
 }
 /*End style all shops*/

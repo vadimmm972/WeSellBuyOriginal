@@ -8,12 +8,23 @@ using System.Threading.Tasks;
 
 namespace OperationTools.common
 {
-    public class InfoShop
+    public class ShortInfoMagazine
     {
-        public int IdShop { get; set; }
+      //  public int IdShop { get; set; }
         public int IdMagazine { get; set; }
         public string NameShop { get; set; }
         public string PhotoShop { get; set; }
+    }
+
+    public class AllInfoMagazine
+    {
+        public int IdMagazine { get; set; }
+        public string NameShop { get; set; }
+        public string PhotoShop { get; set; }
+        public int Status { get; set; }
+        public int Category { get; set; }
+        public string Password { get; set; }
+        public List<CategoryTools> AllCategories { get; set; }
     }
     public class CategoryTools
     {
@@ -31,6 +42,8 @@ namespace OperationTools.common
             string result = dbUser.CheckPassProfile(_id, _pass);
             return result;
         }
+
+      
 
         public List<CategoryTools> GetAllCategories()
         {
@@ -61,6 +74,7 @@ namespace OperationTools.common
                     C_password = _pass,
                     id_category = _category,
                     C_image = _photo,
+                    C_status = 1,
                     dateCreate = DateTime.Now,
                     idUserCreator = _iduser
                 };
@@ -92,23 +106,23 @@ namespace OperationTools.common
             }
         }
 
-        public List<InfoShop> GetListMyShops(int _id)
+        public List<ShortInfoMagazine> GetListMyShops(int _id)
         {
-            List<InfoShop> lstShops = null;
+            List<ShortInfoMagazine> lstShops = null;
 
-            var allShop = dbShop.GeAllShopsByUserId(_id);
+            var allShop = dbMag.GetAllMagazineById(_id);
             if (allShop != null)
             {
-                lstShops = new List<InfoShop>();
-                foreach(Shop s in allShop)
+                lstShops = new List<ShortInfoMagazine>();
+                foreach(Magazine s in allShop)
                 {
-                    lstShops.Add(new InfoShop { IdShop = s.id, IdMagazine = s.Magazine.id , NameShop = s.Magazine.name_magazine, PhotoShop = url.photoShop+s.Magazine.C_image });
+                    lstShops.Add(new ShortInfoMagazine { IdMagazine = s.id, NameShop = s.name_magazine, PhotoShop = url.photoShop + s.C_image });
                 }
             }
             return lstShops;
         }
 
-        public string RemoveShopTools(int idShop , int idMag)
+        public string RemoveShopTools(int idMag)
         {
             string result = "undefined";
 
@@ -125,6 +139,27 @@ namespace OperationTools.common
             }
             return result;
         }
-        
+
+        public AllInfoMagazine GetInfoMagazineById(int idMagInfo)
+        {
+           
+            AllInfoMagazine infoShop = null;
+            var info = dbMag.GetInfoByid(idMagInfo);
+            if (info != null)
+            {
+                List<CategoryTools> catTools = GetAllCategories();
+                infoShop = new AllInfoMagazine
+                {
+                    IdMagazine = info.id,
+                    NameShop = info.name_magazine,
+                    Status = info.C_status,
+                    PhotoShop = url.photoShop+info.C_image,
+                    Password = info.C_password,
+                    Category = Convert.ToInt32(info.id_category),
+                    AllCategories = catTools
+                };
+            }
+            return infoShop;
+        }
     }
 }

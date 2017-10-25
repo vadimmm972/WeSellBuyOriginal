@@ -17,8 +17,6 @@ M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\OperationTools\bin\Debug\DB_Entity_DAL.
 M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\OperationTools\bin\Debug\EntityFramework.dll
 M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\OperationTools\bin\Debug\NLog.dll
 M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\OperationTools\bin\Debug\DB_Entity_DAL.pdb
-M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\OperationTools\bin\Debug\EntityFramework.xml
-M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\OperationTools\bin\Debug\NLog.xml
 M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\OperationTools\obj\Debug\OperationTools.csprojResolveAssemblyReference.cache
 M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\OperationTools\obj\Debug\OperationTools.dll
 M:\Vadym_Kobylynskiy_FILE\OriginalDiplom\OperationTools\obj\Debug\OperationTools.pdb

@@ -107,6 +107,49 @@ namespace DB_Entity_DAL.DB_Operations
                 return "Error:" + e.Message;
             }
         }
+
+
+        public List<Magazine> GetAllMagazineById(int id)
+        {
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var magzAll = db.Magazines.Where(x => x.idUserCreator == id).Select(x => x).ToList();
+                if (magzAll != null)
+                {
+                    return magzAll;
+                }
+                return null;
+            }
+            catch(Exception e)
+            {
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_Magazine -> GetAllMagazineById :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+                return null;
+            }
+        }
+
+        public Magazine GetInfoByid(int id)
+        {
+            try
+            {
+                Sell_BuyEntities db = new Sell_BuyEntities();
+                var infoMagazine = db.Magazines.First(x => x.id == id);
+                if (infoMagazine != null)
+                {
+                    return infoMagazine;
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_Magazine -> GetInfoByid :\r\n Message: " + e.Message + "\r\n " + e.StackTrace + "", 0);
+                return null;
+            }
+        }
+
+
+
+
         public List<Magazine> GetallMagazine()
         {
             try

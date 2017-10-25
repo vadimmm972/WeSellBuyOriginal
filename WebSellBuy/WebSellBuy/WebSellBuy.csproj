@@ -167,6 +167,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\StoreInfo.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -176,6 +177,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\allPages\demo.css" />
+    <Content Include="Content\css\allPages\dialogForms.css" />
     <Content Include="Content\css\allPages\layoutPage.css" />
     <Content Include="Content\css\allPages\loader.css" />
     <Content Include="Content\css\allPages\select\generic.css" />

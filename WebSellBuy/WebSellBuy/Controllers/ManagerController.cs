@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebSellBuy.Helper;
 
 namespace WebSellBuy.Controllers
 {
     public class ManagerController : Controller
     {
         ManagerTools mgTools = new ManagerTools();
+        StoreObjects strObj = new StoreObjects();
+        StoreInfo storeinfo = null;
         //
         // GET: /Manager/
         public ActionResult Index()
@@ -112,9 +115,23 @@ namespace WebSellBuy.Controllers
         }
 
         [HttpPost]
-        public string RemoveShop(int _idShop,int _idMagazine)
+        public string RemoveShop(int _idMagazine)
         {
-            return mgTools.RemoveShopTools(_idShop, _idMagazine);
+            return mgTools.RemoveShopTools(_idMagazine);
+        }
+
+        [HttpPost]
+        public JsonResult GetInfoByMagazine(int _id)
+        {
+            storeinfo = strObj.GetStoreinfo(this.storeinfo);
+            if(storeinfo != null && storeinfo.CustomerID > 0)
+            {
+                return Json(mgTools.GetInfoMagazineById(_id));
+            }
+            else
+            {
+                return null;
+            }
         }
 	}
 }

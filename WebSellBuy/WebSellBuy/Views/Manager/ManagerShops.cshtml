@@ -9,6 +9,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/css/ManagerStyle/ManagerShopsCss/mangerShops.css" rel="stylesheet" />
+    <link href="~/Content/css/allPages/dialogForms.css" rel="stylesheet" />
     <title>ManagerShops</title>
 </head>
 <body>
@@ -44,7 +45,7 @@
                                     </div>
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <select id="categoryForManager" >
+                                        <select class="selectStyleCategory" id="categoryForManager" >
                                             <option value="0">Пожалуйста, выберите категорию:</option>
                                         </select>
                                     </div>
@@ -68,7 +69,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center col-xs-12">
-                                        <a  class="btn btn-default" onclick="createNewShop()">Создать</a>
+                                        <a  class="btn btn-default" onclick="addNewShop()">Создать</a>
                                     </div>
                             </div>
                         </div>
@@ -80,41 +81,45 @@
         <div role="tabpanel" class="tab-pane blockAllShops" id="tab3">
             <div class="clsAllMyShops">
                 <ul class="list-group" id="MyShops">
-                    @*<li class="list-group-item styleBlockShop">
-                        <div class="badgeImage"><img class="logoMyShop" src="http://www.startupremarkable.com/wp-content/uploads/2015/02/a-book-a-week-image.jpg" /></div>
-                        <div class="badgeNameShop"><span class="positionLogoMyShop">NameShop</span></div>
-                        <div style="float:right;">
-                            <a href="#" class="button28">Изменить</a>
-                            <a href="#" class="button28">Перейти</a>
-                            <a href="#" class="button28">Удалить</a>
-                        </div>
-                    </li>
-                    
-                    <li class="list-group-item styleBlockShop">
-                        <div class="badgeImage"><img class="logoMyShop" src="http://www.startupremarkable.com/wp-content/uploads/2015/02/a-book-a-week-image.jpg" /></div>
-                        <div class="badgeNameShop"><span class="positionLogoMyShop">NameShop</span></div>
-                        <div style="float:right;">
-                            <a href="#" class="button28">Изменить</a>
-                            <a href="#" class="button28">Перейти</a>
-                            <a href="#" class="button28">Удалить</a>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item styleBlockShop">
-                        <div class="badgeImage"><img class="logoMyShop" src="http://www.startupremarkable.com/wp-content/uploads/2015/02/a-book-a-week-image.jpg" /></div>
-                        <div class="badgeNameShop"><span class="positionLogoMyShop">NameShop</span></div>
-                        <div style="float:right;">
-                            <a href="#" class="button28">Изменить</a>
-                            <a href="#" class="button28">Перейти</a>
-                            <a href="#" class="button28">Удалить</a>
-                        </div>
-                    </li>*@
-
+                   
                 </ul>
             </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="tab4">
             4 таб
+        </div>
+
+
+        <div role="tabpanel" class="tab-pane" id="tab5">
+            <div class="container">
+                <div class="card card-container">
+                    <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+                   <a onclick="UpdatePhotoMyShop()"><img id="profileShop-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" /></a>
+                    <p id="profile-name" class="profile-name-card"></p>
+                    <form class="form-signin">
+                        <span id="reauth-email" class="reauth-email"></span>
+                        <input type="text" id="inputnameShop" class="form-control" />
+                        <input type="password" id="inputpassword" class="form-control" />
+                        <div class="form-control">
+                              <select class="selectStyleCategory" id="categoryInfoForShop"></select>
+                        </div>
+                        
+                               @*<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <div id="remember" class="checkbox">
+                            <label>
+                                <input type="checkbox" value="remember-me"> Remember me
+                            </label>
+                        </div>*@<button onclick="SaveInfoMyUpdateShop(this)" class="btn btn-lg btn-primary btn-block btn-signin" type="button">Сохранить</button>
+                    </form><!-- /form -->
+                    @*<a href="#" class="forgot-password">
+                        Forgot the password?
+                    </a>*@
+                </div><!-- /card-container -->
+            </div><!-- /container -->
+
+
+            <input id="inputPhotoUpdateForFile" type="file" class="hiddenUpdatePhotoMySgop" multiple />
         </div>
      </div>
 
@@ -130,3 +135,9 @@
         </div>*@
 </body>
 </html>
+
+<script>
+    document.querySelector('#inputPhotoUpdateForFile').onchange = function (e) {
+        updatePhotoInServer(3);
+    }
+    </script>
