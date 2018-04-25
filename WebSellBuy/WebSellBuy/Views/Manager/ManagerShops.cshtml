@@ -86,15 +86,26 @@
             </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="tab4">
-            4 таб
+            <div class="blockSearshShop">
+                <div class="selInfoShpSearshM form-control"> @*By category*@
+                Поиск по категории:
+                    <select class="selectStyleCategory" id=""></select>
+                </div>
+
+                <div class="selInfoShpSearshM form-control">
+                    @*By Login*@
+                    <select class="selectStyleCategory" id=""></select>
+                </div>
+            </div>
         </div>
 
 
         <div role="tabpanel" class="tab-pane" id="tab5">
+            <input type="hidden" id="IdShop" value=""/>
             <div class="container">
                 <div class="card card-container">
                     <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-                   <a onclick="UpdatePhotoMyShop()"><img id="profileShop-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" /></a>
+                   <a id="imgShopus" onclick="UpdatePhotoMyShop()"><img id="profileShop-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" /></a>
                     <p id="profile-name" class="profile-name-card"></p>
                     <form class="form-signin">
                         <span id="reauth-email" class="reauth-email"></span>

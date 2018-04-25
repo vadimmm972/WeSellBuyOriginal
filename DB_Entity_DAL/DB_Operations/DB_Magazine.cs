@@ -30,21 +30,20 @@ namespace DB_Entity_DAL.DB_Operations
         {
             try
             {
-
                 Sell_BuyEntities db = new Sell_BuyEntities();
-                Magazine m = db.Magazines.Find(id);
-
+                var m = db.Magazines.FirstOrDefault(u => u.id == id);
                 m.name_magazine = magazine.name_magazine;
-                m.C_image = magazine.C_image;
-                m.C_status = magazine.C_status;
+                m.C_password = magazine.C_password;
+                m.id_category = magazine.id_category;
+                //m.C_status = magazine.C_status;
                 db.SaveChanges();
                 return m.name_magazine + " was succefully updated";
             }
             catch (Exception e)
             {
-                return "Error:" + e.Message;
+                nLog.WriteLog("DB_Entity_DAL -> DB_Operation -> DB_Country -> GetallCountries :\r\n Message: " + e.Message + "\r\n " + e.StackTrace, 0);
+                return "Error";
             }
-
         }
 
         public bool CheckMagazine(string name)

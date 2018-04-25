@@ -17,6 +17,7 @@
     <link href="~/Content/css/allPages/loader.css" rel="stylesheet" />
     <script src="~/Content/js/allSite/popup.js"></script>
     <script src="~/Content/js/allSite/commonJs.js"></script>
+    <link href="~/Content/css/allPages/demo.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -170,5 +171,15 @@
                 </div>
             </div>
     </form>
+
+    <div style="z-index:9999;" class="back-dialog" id="dialog">
+        <div class="dialog-content">
+            <div class="dialog-title">
+                <span>Информация</span>
+                <a class='close-dialog' href='javascript: closedialog()'></a>
+            </div>
+            <span class="textInfoDialogForm"></span>
+        </div>
+    </div>
 </body>
 </html>

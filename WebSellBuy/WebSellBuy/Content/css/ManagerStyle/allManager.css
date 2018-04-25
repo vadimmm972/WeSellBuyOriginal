@@ -94,4 +94,20 @@ a.button7:active {
 #inputPhotoUpdateForFile{
     display:none;
 }
+.profile-img-card:hover{
+    /*border: solid 3px rgb(104, 145, 162);*/
+    background:rgb(104, 145, 162);
+    padding: 3px;
+    cursor:pointer;
+}
+
+.blockSearshShop{
+    width: 100%;
+    margin-top: 30px;
+}
+
+.selInfoShpSearshM{
+    width:30%;
+    float:left;
+}
 /*End style all shops*/

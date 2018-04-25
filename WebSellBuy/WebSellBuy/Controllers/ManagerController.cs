@@ -133,5 +133,23 @@ namespace WebSellBuy.Controllers
                 return null;
             }
         }
+        public JsonResult testFunhc()
+        {
+            return Json("asd");
+        }
+
+        [HttpPost]
+        public string UpdateInfoByShop(string name , string pass , int cat , int IdShop)
+        {
+            storeinfo = strObj.GetStoreinfo(this.storeinfo);
+            if (storeinfo != null && storeinfo.CustomerID > 0)
+            {
+                return mgTools.UpdateInfooByShopTools(name, pass, cat, IdShop);
+            }
+            else
+            {
+                return "";
+            }
+        }
 	}
 }

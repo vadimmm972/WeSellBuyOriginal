@@ -30,9 +30,13 @@
     <script src="~/Content/js/allSite/select_All.js"></script>
     <link href="~/Content/css/allPages/select/generic.css" rel="stylesheet" />
     <link href="~/Content/css/allPages/select/style.css" rel="stylesheet" />
+    <link href="~/Content/css/allPages/loader.css" rel="stylesheet" />
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <div class="loadingBlock">
+        <div class="loader"></div>
+    </div>
     <!-- Bootstrap core CSS -->
     @if (Request.Cookies["ManagerCoockie"] != null)
     {
@@ -275,7 +279,7 @@
                         <li class="breadcrumb-item active">My Dashboard</li>
                     </ol>*@
                 @{
-        Html.RenderPartial("ManagerShops");
+                      Html.RenderPartial("ManagerShops");
                 }
             </div>
             <!-- /.container-fluid -->

@@ -161,5 +161,19 @@ namespace OperationTools.common
             }
             return infoShop;
         }
+
+        public string UpdateInfooByShopTools(string name, string pass, int cat, int idSHop)
+        {
+            Magazine magazine = new Magazine
+            {
+                name_magazine = name,
+                C_password = pass,
+                id_category = cat
+            };
+
+            string resUpdate = dbMag.UpdateMagazine(idSHop, magazine);
+
+            return "";
+        }
     }
 }

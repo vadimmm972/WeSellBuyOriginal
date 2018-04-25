@@ -147,9 +147,9 @@ function InsertInfoForUpdatMyMagazine(idMag){
 
                     $(".button28").removeClass("active");
                     $("#inputnameShop").val(response.NameShop);
-                    $("#inputpassword").val(response.NameShop);
+                    $("#inputpassword").val(response.Password);
                     $(".profile-img-card").attr('src', response.PhotoShop);
-
+                    $("#IdShop").val(response.IdMagazine);
 
                     $("#categoryInfoForShop").empty();
                     var regSelect = document.getElementById("categoryInfoForShop");
@@ -171,7 +171,7 @@ function InsertInfoForUpdatMyMagazine(idMag){
 }
 
 
-function updatePhotoInServer(op){
+function updatePhotoInServer(op,block){
     if (IdMyShop != 0) {
 
      
@@ -209,9 +209,17 @@ function updatePhotoInServer(op){
                     if (response != "") {
                         //$("#profileShop-img").attr('src', nameImageUpd);
                         // document.location.reload();
+                        
+                        //var divImgShop = $("#profileShop-img");
+
+                     
                         var src = $("#profileShop-img").attr('src');
-                        $("#profileShop-img").removeAttr('src').attr('src', src);
-                        document.location.reload();
+                       // $("#profileShop-img").removeAttr('src').attr('src', src);
+                        var d = new Date();
+                       // $("#profileShop-img").attr("src", $("#profileShop-img").attr(src));
+                        $("#profileShop-img").attr('src', src + '?dummy=' + d.getTime());
+
+                       // document.location.reload();
                         
                     }
                     loading(0);
@@ -226,8 +234,32 @@ function UpdatePhotoMyShop() {
 }
 
 function SaveInfoMyUpdateShop(event) {
-    //updatePhotoInServer()
+    loading(1);
+    var nameShop = $("#inputnameShop").val();
+    var passShop = $("#inputpassword").val();
+    var idshopCheck = $("#IdShop").val();
+    var categoryShop = $('#categoryInfoForShop :selected').map(function () { return $(this).val(); });
+    categoryShop = categoryShop[0];
 
+    if (nameShop == "" || passShop == "" || categoryShop == "") {
+        opendialog("Заполните все поля");
+        loading(0);
+    }
+    else {
+        $.ajax({
+            url: SPU + 'Manager/UpdateInfoByShop',
+            type: "POST",
+            data: { name: nameShop, pass: passShop, cat: categoryShop, IdShop: idshopCheck },
+            success: function (response) {
+                imageName = response;
+                if (response != "") {
+                  
+
+                }
+                loading(0);
+            }
+        });
+    }
 }
 
 
